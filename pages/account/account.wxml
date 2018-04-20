@@ -1,0 +1,4 @@
+<view class="container">
+  <image class="avatar" src="{{props.user.info.avatarUrl}}"></image>
+  <view>{{props.user.info.nickName}}</view>
+</view>
