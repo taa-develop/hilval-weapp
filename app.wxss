@@ -1,3 +1,4 @@
+/* main-color : #449284 */
 .container {
   height: 100%;
   display: flex;

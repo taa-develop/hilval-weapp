@@ -1,9 +1,15 @@
 {
-  "pages": ["pages/index/index", "pages/order/order", "pages/account/account"],
+  "pages": [
+    "pages/index/index",
+    "pages/index/placeForm/placeForm",
+    "pages/index/peopleForm/peopleForm",
+    "pages/order/order",
+    "pages/account/account"
+  ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "晓行出行",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

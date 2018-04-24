@@ -1,0 +1,9 @@
+.title {
+  margin: 20px;
+}
+.item {
+  padding: 20px;
+}
+.item:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
