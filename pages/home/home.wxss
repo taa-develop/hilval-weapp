@@ -1,7 +1,6 @@
 .home-container {
   min-height: 100vh;
   background-color: #efefef;
-  /* font-size: 14px; */
 }
 .address-bar,
 .form-container,
@@ -13,16 +12,15 @@
 .address-bar {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 10px;
   color: #449284;
 }
-.icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5em;
-}
 .location {
   flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 /* form */
 .form-container {
@@ -58,11 +56,6 @@
 /* section */
 .section-container {
   color: #449284;
-}
-.title {
-  display: flex;
-  align-items: center;
-  padding: 10px;
 }
 .item-list {
   display: flex;

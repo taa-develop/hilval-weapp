@@ -1,14 +1,14 @@
 <view class="home-container">
   <view class="address-bar">
-    <image class="icon" src="../../resource/icons/guide.png"></image>
-    <text class="location">横琴</text>
-    <image class="icon" src="../../resource/icons/reload.png"></image>
-    <text class="reload">重新定位</text>
+    <image class="icon" src="../../resource/icons/guide.png" bindtap="to" data-url="/pages/index/placeForm/placeForm"></image>
+    <text class="location" bindtap="to" data-url="/pages/index/placeForm/placeForm">{{props.form.location.name}}</text>
+    <image class="icon" src="../../resource/icons/location.png" bindtap="getLocation"></image>
+    <text bindtap="getLocation">定位</text>
   </view>
 
   <view class="form-container">
     <view class="dis-flex">
-      <view class="choise-item" bindtap="to" data-url="/pages/index/placeForm/placeForm">
+      <view class="choise-item">
         <text>{{checkInDate}}</text>
         <text class="tips">选择入住时间</text>
       </view>
@@ -26,7 +26,7 @@
   </view>
 
   <view class="section-container">
-    <view class="title">
+    <view class="section-title">
       <image class="icon" src="../../resource/icons/earth.png"></image>
       <text>当季热门</text>
     </view>
@@ -36,7 +36,7 @@
   </view>
 
   <view class="section-container">
-    <view class="title">
+    <view class="section-title">
       <image class="icon" src="../../resource/icons/note.png"></image>
       <text>旅游攻略</text>
     </view>
@@ -44,20 +44,4 @@
       <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img"></image>
     </view>
   </view>
-
-  <!-- <view>
-    <picker mode="date" value="{{checkInDate}}" start="2015-09-01" end="2017-09-01" bindchange="dateChange">
-      <view class="picker">
-        日期: {{checkInDate}}
-      </view>
-    </picker>
-  </view>
-
-  <view class="section" style="background:#787878;margin:20rpx;padding:20rpx">
-    <picker bindchange="peopleChange" value="{{peopleIndex}}" range="{{peopleCount}}">
-      <view class="picker">
-        人数：{{peopleCount[peopleIndex]}}
-      </view>
-    </picker>
-  </view> -->
 </view>

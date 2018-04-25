@@ -1,8 +1,12 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/index/placeForm/placeForm",
-    "pages/index/peopleForm/peopleForm",
+    "pages/home/home",
+    "pages/address-search/address-search",
+    "pages/time-select/time-select",
+    "pages/people-count/people-count",
+    "pages/business/business",
+    "pages/business-detail/business-detail",
+
     "pages/order/order",
     "pages/account/account"
   ],
@@ -14,10 +18,10 @@
   },
   "tabBar": {
     "color": "#bfbfbf",
-    "selectedColor": "#00a7ec",
+    "selectedColor": "#449284",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/home/home",
         "iconPath": "resource/icons/home.png",
         "selectedIconPath": "resource/icons/home-active.png",
         "text": "首页"
@@ -25,8 +29,8 @@
       {
         "pagePath": "pages/order/order",
         "text": "订单",
-        "iconPath": "resource/icons/form.png",
-        "selectedIconPath": "resource/icons/form-active.png"
+        "iconPath": "resource/icons/order.png",
+        "selectedIconPath": "resource/icons/order-active.png"
       },
       {
         "pagePath": "pages/account/account",

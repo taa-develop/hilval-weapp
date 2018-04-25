@@ -1,4 +1,0 @@
-<view>
-  <text class="title">选择入住人数</text>
-  <view class="item" wx:for="{{people}}" wx:key="{{index}}" bindtap="peopleChange" data-val="{{item.val}}">{{item.label}}</view>
-</view>

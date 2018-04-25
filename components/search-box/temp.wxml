@@ -1,0 +1,3 @@
+<template name="search-box">
+  <view>the search box</view>
+</template>

@@ -22,6 +22,15 @@ Page(
       form
     },
     onLoad: function() {},
+    getLocation() {
+      wx.chooseLocation({
+        success: res => {
+          console.log('location ===>', res)
+          this.props.form.update({ location: { ...res } })
+          console.log(this.props.form)
+        }
+      })
+    },
     dateChange(e) {
       this.setData({ checkInDate: e.detail.value })
     },
