@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "search-box": "/components/search-box/search-box",
+    "hotel-item": "/components/hotel-item/hotel-item"
+  }
+}

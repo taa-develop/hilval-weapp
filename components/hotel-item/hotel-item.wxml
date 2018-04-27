@@ -1,0 +1,11 @@
+<view class="hotel-item">
+  <view class="icon {{type.class}}"></view>
+  <view class="info">
+    <view class="name">{{data.name}}</view>
+    <view class="detail">
+      <text class="add">{{data.add}}</text>
+      <text class="type">| {{type.text}}</text>
+    </view>
+  </view>
+  <view class="price">￥{{data.price}} 起</view>
+</view>

@@ -1,1 +1,8 @@
-<view>address</view>
+<view class="address-search">
+  <search-box bind:on-input="onInput" />
+
+  <!--  输入内容时,显示的列表 -->
+  <view class="hotel-list" wx:if="{{isShow}}">
+    <hotel-item class="item" wx:for="{{list}}" wx:key="{{index}}" data="{{item}}" />
+  </view>
+</view>

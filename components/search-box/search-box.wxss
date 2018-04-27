@@ -1,0 +1,40 @@
+.search-box {
+  position: relative;
+  padding: 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+}
+.input-wrap {
+  padding: 0 1em 0 3em;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  background-color: #efefef;
+  font-size: 12px;
+}
+.search-icon {
+  position: absolute;
+  z-index: 2;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+.clear {
+  position: absolute;
+  z-index: 2;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+}
+.clear-icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
