@@ -1,4 +1,56 @@
-<view class="container">
-  <image class="avatar" src="{{props.user.info.avatarUrl}}"></image>
-  <view>{{props.user.info.nickName}}</view>
+<view class="account-page">
+  <view class="user-box">
+    <image class="wtf-bg" src="../../resource/images/user-bg.jpg"></image>
+    <view class="user-info">
+      <image class="avatar" src="{{props.user.info.avatarUrl}}"></image>
+      <view class="user-name">{{props.user.info.nickName}}</view>
+      <view class="message-bar">
+        <view class="msg-item">
+          <text class="num">2332</text>
+          <view class="icon-wrap">
+            <image class="icon" src="../../resource/icons/point.png"></image>
+            <text class="icon-name">积分</text>
+          </view>
+        </view>
+        <view class="line"></view>
+        <view class="msg-item">
+          <text class="num">5</text>
+          <view class="icon-wrap">
+            <image class="icon" src="../../resource/icons/ticket.png"></image>
+            <text class="icon-name">优惠卷</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="nav-group">
+    <view class="nav-link">
+      <image class="icon" src="../../resource/icons/order-active.png"></image>
+      <text class="text">全部订单</text>
+      <image class="arrow" src="../../resource/icons/arrow.png"></image>
+    </view>
+    <view class="nav-link">
+      <image class="icon" src="../../resource/icons/comment.png"></image>
+      <text class="text">评价</text>
+      <image class="arrow" src="../../resource/icons/arrow.png"></image>
+    </view>
+    <view class="nav-link">
+      <image class="icon" src="../../resource/icons/vip.png"></image>
+      <text class="text">会员</text>
+      <image class="arrow" src="../../resource/icons/arrow.png"></image>
+    </view>
+  </view>
+
+  <view class="nav-group">
+    <view class="nav-link">
+      <image class="icon" src="../../resource/icons/lang.png"></image>
+      <text class="text">语言</text>
+      <image class="arrow" src="../../resource/icons/arrow.png"></image>
+    </view>
+    <view class="nav-link">
+      <image class="icon" src="../../resource/icons/service.png"></image>
+      <text class="text">客服</text>
+      <image class="arrow" src="../../resource/icons/arrow.png"></image>
+    </view>
+  </view>
 </view>

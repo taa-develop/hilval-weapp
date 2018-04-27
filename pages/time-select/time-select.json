@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "date-comp": "/components/date-comp/date-comp"
+  }
+}

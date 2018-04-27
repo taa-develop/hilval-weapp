@@ -1,0 +1,20 @@
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  padding-left: 0;
+  margin-left: 20px;
+  border-bottom: 1px solid #000;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
+.text {
+  flex: 1;
+}
+.arrow {
+  width: 20px;
+  height: 20px;
+  background-color: rgb(92, 28, 28);
+}

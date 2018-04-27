@@ -1,6 +1,78 @@
+.user-box {
+  position: relative;
+  margin-bottom: 80px;
+}
+.wtf-bg {
+  display: block;
+  width: 750rpx;
+  height: 375rpx;
+}
+.user-info {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  bottom: 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 0 0 20px 0px rgba(68, 146, 132, 0.4);
+  transform: translateY(40px);
+}
+
 .avatar {
   width: 128rpx;
   height: 128rpx;
+  margin-bottom: 0.5em;
   border-radius: 50%;
   background-size: cover;
+  background-color: #ccc;
+}
+
+/* bar */
+.message-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 0.5em;
+}
+.msg-item {
+  width: 4em;
+}
+.line {
+  width: 1px;
+  height: 1em;
+  background-color: #000;
+}
+.icon-wrap {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+}
+/* nav link */
+.nav-group {
+  margin-bottom: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px 0 #ccc;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  padding-left: 0;
+  margin-left: 20px;
+}
+.nav-link:not(:last-child) {
+  border-bottom: 1px solid #e6e6e6;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
+.text {
+  flex: 1;
+}
+.arrow {
+  width: 20px;
+  height: 20px;
 }

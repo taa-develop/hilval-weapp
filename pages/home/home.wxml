@@ -44,4 +44,5 @@
       <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img"></image>
     </view>
   </view>
+  <navigator url="/pages/time-select/time-select">goto time select</navigator>
 </view>

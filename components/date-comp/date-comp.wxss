@@ -1,0 +1,31 @@
+.wrap {
+  display: inline-block;
+  width: 14.28%;
+}
+.date-item {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx auto;
+  border: 1px solid #000;
+  text-align: center;
+  line-height: 60rpx;
+}
+.date-item.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+.date-item.week {
+  background-color: rgb(245, 197, 197);
+}
+.date-item.disable {
+  color: #ccc;
+  border-color: #ccc;
+}
+.date-item.check-in {
+  background-color: rgb(53, 194, 182);
+  border-radius: 50%;
+}
+.date-item.check-out {
+  background-color: rgb(236, 92, 172);
+  border-radius: 50%;
+}

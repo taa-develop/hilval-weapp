@@ -1,7 +1,3 @@
-.home-container {
-  min-height: 100vh;
-  background-color: #efefef;
-}
 .address-bar,
 .form-container,
 .section-container {
