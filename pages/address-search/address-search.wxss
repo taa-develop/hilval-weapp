@@ -1,13 +1,21 @@
 .address-search {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
 }
-.hotel-list {
-  flex: 1;
-  background-color: #fff;
-  overflow-y: scroll;
+.search-box {
+  border-bottom: 1px solid #efefef;
 }
+.search-box::after {
+  display: block;
+  content: '';
+  height: 50px;
+}
+.fixed {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+}
+
 .list-wrap {
   background-color: #fff;
   padding: 0 10px 10px 5px;
@@ -21,4 +29,8 @@
   background-color: #efefef;
   color: #757575;
   font-size: 12px;
+}
+
+.hotel-list {
+  background-color: #fff;
 }

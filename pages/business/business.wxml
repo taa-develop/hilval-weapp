@@ -1,1 +1,16 @@
-<view>business</view>
+<!-- 从首页点击搜索后,住房提供商列表 -->
+<view class="business">
+  <view class="fixed-box">
+    <view class="fixed">
+      <search-box />
+      <view class="tabs">
+        <text class="tab">位置</text>
+        <text class="tab">排序</text>
+        <text class="tab">筛选</text>
+      </view>
+    </view>
+  </view>
+  <view class="business-list">
+    <business-item wx:for="{{list}}" wx:key="{{index}}" data="{{item}}" />
+  </view>
+</view>

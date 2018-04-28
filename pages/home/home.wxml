@@ -22,9 +22,9 @@
       <text>{{props.form.people.text}}</text>
       <text class="tips">选择入住人数</text>
     </view>
-    <button class="search-btn">搜索</button>
+    <button class="search-btn" bindtap="to" data-url="/pages/business/business">搜索</button>
   </view>
-
+  <!-- 
   <view class="section-container">
     <view class="section-title">
       <image class="icon" src="../../resource/icons/earth.png"></image>
@@ -43,6 +43,5 @@
     <view class="item-list">
       <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img"></image>
     </view>
-  </view>
-  <navigator url="/pages/time-select/time-select">goto time select</navigator>
+  </view> -->
 </view>

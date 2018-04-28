@@ -1,0 +1,35 @@
+.fixed-box {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
+.fixed-box::after {
+  display: block;
+  content: '';
+  height: 90px;
+}
+
+.tabs {
+  padding: 10px;
+  background-color: #fff;
+}
+.tab {
+  position: relative;
+  display: inline-block;
+  margin-right: 1em;
+  padding: 0 1em;
+  padding-left: 0;
+}
+.tab::after {
+  position: absolute;
+  right: -5px;
+  bottom: 0;
+  content: '';
+  border: 5px solid transparent;
+  border-top-color: #000;
+  transform: rotate(-45deg);
+}

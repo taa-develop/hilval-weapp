@@ -1,5 +1,7 @@
 <view class="address-search">
-  <search-box bind:on-input="onInput" />
+  <div class="search-box">
+    <search-box class="fixed" bind:on-input="onInput" />
+  </div>
 
   <!-- 默认显示的内容 -->
   <view wx:if="{{!showList}}">

@@ -1,0 +1,19 @@
+<view class="business-item">
+  <view class="preview">
+    <image class="img" src="{{data.img}}"></image>
+    <text class="price">
+      <text>￥{{data.price}}</text>
+      <text class="small"> 起</text>
+    </text>
+  </view>
+  <view class="title-bar">
+    <text class="level">{{level}}</text>
+    <text class="name">{{data.name}}</text>
+    <text class="score">{{data.score}} 分</text>
+  </view>
+  <view class="info-bar">
+    <view class="tags">
+      <tag-item wx:for="{{data.tags}}" wx:key="index" text="{{item}}"></tag-item>
+    </view>
+  </view>
+</view>
