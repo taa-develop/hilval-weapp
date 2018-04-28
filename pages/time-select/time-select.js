@@ -15,13 +15,6 @@ Page(
       const currY = now.getFullYear()
       const currM = now.getMonth()
       const currD = now.getDate()
-      // 设置默认的时间
-      if (!(form.checkIn && form.checkOut)) {
-        form.update({
-          checkIn: new Date(currY, currM, currD).getTime(),
-          checkOut: new Date(currY, currM, currD + 1).getTime()
-        })
-      }
       console.log(form)
       this.setData({
         startTime: new Date(currY, currM, currD).getTime(),
@@ -54,7 +47,7 @@ Page(
         }
         wx.navigateBack()
       } else {
-        form.update({ checkIn: timestamp, checkOut: '' })
+        form.update({ checkIn: timestamp, checkOut: 0 })
       }
     },
     supplement() {

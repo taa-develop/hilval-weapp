@@ -1,1 +1,4 @@
-<view>people</view>
+<view class="people-count">
+  <section-title title="选择人数" />
+  <view class="option-item" wx:for="{{list}}" wx:key="index" data-val="{{item}}" bind:tap="onClick">{{item.text}}</view>
+</view>

@@ -3,7 +3,8 @@
   align-items: center;
   padding: 0.5em 0.5em 0.5em 0;
   margin-left: 1em;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #f3f3f3;
+  font-size: 14px;
 }
 
 .icon {
@@ -26,7 +27,6 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 14px;
 }
 .detail {
   font-size: 12px;

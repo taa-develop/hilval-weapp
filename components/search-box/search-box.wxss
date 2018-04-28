@@ -2,7 +2,7 @@
   position: relative;
   padding: 10px;
   background-color: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
 }
 .input-wrap {
   padding: 0 1em 0 3em;

@@ -2,7 +2,8 @@
 /* 配置app全局背景色 */
 page {
   min-height: 100vh;
-  background-color: #efefef;
+  background-color: #f3f3f3;
+  font-size: 14px;
 }
 .container {
   height: 100%;

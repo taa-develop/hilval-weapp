@@ -7,19 +7,19 @@
   </view>
 
   <view class="form-container">
-    <view class="dis-flex">
+    <view class="dis-flex" data-url="/pages/time-select/time-select" bind:tap="to">
       <view class="choise-item">
-        <text>{{checkInDate}}</text>
+        <text>{{props.form.checkInText}}</text>
         <text class="tips">选择入住时间</text>
       </view>
       <view class="slash"></view>
       <view class="choise-item">
-        <text>{{checkOutDate}}</text>
+        <text>{{props.form.checkOutText}}</text>
         <text class="tips">选择退房时间</text>
       </view>
     </view>
-    <view class="choise-item" bindtap="to" data-url="/pages/index/peopleForm/peopleForm">
-      <text>{{props.form.people.label}}</text>
+    <view class="choise-item" bindtap="to" data-url="/pages/people-count/people-count">
+      <text>{{props.form.people.text}}</text>
       <text class="tips">选择入住人数</text>
     </view>
     <button class="search-btn">搜索</button>

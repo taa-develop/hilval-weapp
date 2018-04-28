@@ -1,6 +1,8 @@
 {
   "usingComponents": {
     "search-box": "/components/search-box/search-box",
-    "hotel-item": "/components/hotel-item/hotel-item"
+    "hotel-item": "/components/hotel-item/hotel-item",
+    "section-title": "/components/section-title/section-title",
+    "tag-link": "/components/tag-link/tag-link"
   }
 }

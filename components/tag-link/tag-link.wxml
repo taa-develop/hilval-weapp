@@ -1,0 +1,1 @@
+<text class="tag-link" bind:tap="goto">{{data.text}}</text>

@@ -1,6 +1,5 @@
-<view>
-  <view>选择时间</view>
-  <view>{{props.form.checkIn}} ~ {{props.form.checkOut}}</view>
+<view class="time-select">
+  <section-title title="选择入住和退房时间" />
   <date-comp wx:for="{{monthList}}" wx:key="{{index}}" year="{{item.year}}" month="{{item.month}}" start="{{startTime}}" end="{{endTime}}"
     checkIn="{{props.form.checkIn}}" checkOut="{{props.form.checkOut}}" bind:on-click="handleClickDate"></date-comp>
 </view>

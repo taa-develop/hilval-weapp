@@ -10,6 +10,7 @@ Component({
   },
   // self attr
   data: {
+    week: ['日', '一', '二', '三', '四', '五', '六'],
     dates: [],
     currYear: 0,
     currMonth: 0
@@ -37,9 +38,7 @@ Component({
           show: true,
           text: i + 1,
           isWeek: date.getDay() === 0 || date.getDay() === 6,
-          disable:
-            date.getTime() < this.properties.start ||
-            date.getTime() > this.properties.end
+          disable: date.getTime() < this.properties.start || date.getTime() > this.properties.end
         })
       }
       const timestamp = new Date(currY, currM, 1)
