@@ -11,6 +11,6 @@
     </view>
   </view>
   <view class="business-list">
-    <business-item wx:for="{{list}}" wx:key="{{index}}" data="{{item}}" />
+    <business-item wx:for="{{list}}" wx:key="{{index}}" data="{{item}}" data-id="{{item.id}}" bind:tap="goto" />
   </view>
 </view>

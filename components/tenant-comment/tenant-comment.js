@@ -1,0 +1,3 @@
+Component({
+  properties: { data: { type: Object } }
+})

@@ -1,5 +1,6 @@
 Component({
   properties: {
-    title: { type: String, value: '' }
+    title: { type: String, value: '' },
+    padding: { type: Boolean, value: true }
   }
 })
