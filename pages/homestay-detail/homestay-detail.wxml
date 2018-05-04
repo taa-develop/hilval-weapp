@@ -23,22 +23,6 @@
       <view class="description">{{fetchData.description}}</view>
     </view>
 
-    <!-- 酒店房间列表 -->
-    <view class="section-wrap">
-      <text class="sub-title">房间列表</text>
-      <view class="filters">
-        <text class="filter {{item.checked?'active':''}}" wx:for="{{filters}}" wx:key="{{index}}" data-val="{{item.val}}" bind:tap="handleCheck">{{item.name}}</text>
-      </view>
-      <view class="hotel-item" wx:for="{{fetchHotel}}" wx:key="{{index}}">
-        <image class="img" src="{{item.img}}"></image>
-        <view class="info">
-          <view class="hotel-name">{{item.name}}</view>
-          <view class="detail">{{item.size}} {{item.tag}}</view>
-        </view>
-        <view class="price">￥{{item.price}}起</view>
-      </view>
-    </view>
-
     <view class="section-wrap">
       <text class="sub-title">配套设施</text>
       <view class="facilities">
@@ -88,5 +72,16 @@
       <text class="tab {{showId==='info'?'active':''}}" bind:tap="jump" data-anchor="info">住房须知</text>
     </view>
 
+    <!-- 底部提交按钮 -->
+    <view class="bottom-ctrl">
+      <view class="clear"></view>
+      <view class="fixed">
+        <image class="call-icon" src="../../resource/icons/call.png" bind:tap="phoneCall"></image>
+        <view class="submit-bar">
+          <text class="price">￥ {{fetchData.price}}</text>
+          <text class="submit">预订</text>
+        </view>
+      </view>
+    </view>
   </scroll-view>
 </view>

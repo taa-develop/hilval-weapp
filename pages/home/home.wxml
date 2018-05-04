@@ -31,7 +31,7 @@
       <text>当季热门</text>
     </view>
     <view class="item-list">
-      <image wx:for="{{hot}}" wx:key="{{index}}" class="item-img"></image>
+      <image wx:for="{{hot}}" wx:key="{{index}}" class="item-img" src="{{item.img}}"></image>
     </view>
   </view>
 
@@ -41,7 +41,7 @@
       <text>旅游攻略</text>
     </view>
     <view class="item-list">
-      <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img"></image>
+      <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img" src="{{item.img}}"></image>
     </view>
   </view>
 </view>

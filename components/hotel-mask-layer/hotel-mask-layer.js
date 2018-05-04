@@ -10,7 +10,9 @@ Component({
           'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525920606&di=5a38b17c7f27f8f12e9922764344ab5f&imgtype=jpg&er=1&src=http%3A%2F%2Fimages.ctrip.com%2Fi%2Fhotel%2F26000%2F25490%2FE9B26D3A-20B4-4164-A81A-248A9DC55931.jpg',
           'https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1525315826&di=f82e1dbf3bb53d792aeec376ba991215&src=http://img1.cache.netease.com/catchpic/F/F7/F76CFA7C445B660575B83D006783567F.jpg'
         ],
-        info: '房屋 55平;含双人早餐;双人床 1.8*1.5;单人床 1.5*1.5;宜住2-4人;加床 ￥150/人',
+        houseInfos:
+          '房屋面积:55平;含双人早餐;双人床:1.8*1.5;单人床:1.5*1.5;宜住2-4人;加床位:￥150/人',
+        priceInfos: '住房费:800元;住房押金:500元;优惠券减免:100元;汇率:1:445',
         price: 1288
       }
     },
@@ -20,7 +22,8 @@ Component({
     }
   },
   data: {
-    infos: []
+    houseInfos: [],
+    priceInfos: []
   },
   methods: {
     hide() {
@@ -32,6 +35,7 @@ Component({
     }
   },
   ready() {
-    this.setData({ infos: this.properties.data.info.split(';') })
+    this.setData({ houseInfos: this.properties.data.houseInfos.split(';') })
+    this.setData({ priceInfos: this.properties.data.priceInfos.split(';') })
   }
 })

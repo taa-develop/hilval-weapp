@@ -4,7 +4,12 @@
     <view class="user-info">
       <image class="avatar" src="{{props.user.info.avatarUrl}}"></image>
       <view class="user-name">{{props.user.info.nickName}}</view>
-      <view class="message-bar">
+
+      <!-- 登陆前的按钮 -->
+      <view class="login-btn" wx:if="{{!props.user.isLogin}}" bind:tap="handleLogin">登陆/注册</view>
+
+      <!-- 登陆后的信息 -->
+      <view class="message-bar" wx:if="{{props.user.isLogin}}">
         <view class="msg-item">
           <text class="num">2332</text>
           <view class="icon-wrap">

@@ -3,6 +3,7 @@ import { observable } from './tools'
 class User {
   constructor() {
     observable(this, {
+      isLogin: false,
       info: null
     })
   }

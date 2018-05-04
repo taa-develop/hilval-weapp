@@ -14,16 +14,3 @@ page {
   padding: 200rpx 0;
   box-sizing: border-box;
 }
-
-/* section title */
-.section-title {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  color: #449284;
-}
-.icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 0.5em;
-}

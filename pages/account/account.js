@@ -17,6 +17,10 @@ Page(
           user.updateInfo(res.userInfo)
         }
       })
+    },
+    handleLogin() {
+      console.log('login')
+      user.isLogin = true
     }
   })
 )

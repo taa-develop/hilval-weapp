@@ -8,9 +8,16 @@
       <image class="img" wx:for="{{data.imgs}}" wx:key="{{index}}" src="{{item}}"></image>
     </view>
     <view class="name">{{data.name}}</view>
-    <view class="info">
-      <view class="p" wx:for="{{infos}}" wx:key="{{index}}">{{item}}</view>
+
+    <view class="title">房间详情</view>
+    <view class="infos">
+      <view class="info" wx:for="{{houseInfos}}" wx:key="{{index}}">{{item}}</view>
     </view>
+    <view class="title">房价详情</view>
+    <view class="infos">
+      <view class="info" wx:for="{{priceInfos}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+
     <view class="ctrl-bar">
       <text class="price">￥ {{data.price}}</text>
       <text class="submit">预订</text>
