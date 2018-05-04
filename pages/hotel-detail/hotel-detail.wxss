@@ -30,7 +30,7 @@
 }
 .top-tabs.fixed {
   position: fixed;
-  z-index: 100;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
@@ -161,12 +161,12 @@
 }
 
 /* house id */
-.hourse-id {
+.house-id {
   position: relative;
   margin: 20px 0;
   text-align: center;
 }
-.hourse-id .id-txt {
+.house-id .id-txt {
   position: relative;
   z-index: 2;
   display: inline-block;
@@ -174,7 +174,7 @@
   background-color: #fff;
   font-size: 12px;
 }
-.hourse-id::before {
+.house-id::before {
   position: absolute;
   top: 50%;
   left: 0;

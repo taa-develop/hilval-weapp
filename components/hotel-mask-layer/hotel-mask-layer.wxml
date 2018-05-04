@@ -1,0 +1,19 @@
+<!-- 点击酒店房间时,从底部弹出的遮罩层 -->
+<view class="hotel-mask-layer {{show?'':'hide'}}">
+  <view class="content">
+    <view class="down" bind:tap="hide">
+      <image class="down-icon" src="../../resource/icons/down.png"></image>
+    </view>
+    <view class="images">
+      <image class="img" wx:for="{{data.imgs}}" wx:key="{{index}}" src="{{item}}"></image>
+    </view>
+    <view class="name">{{data.name}}</view>
+    <view class="info">
+      <view class="p" wx:for="{{infos}}" wx:key="{{index}}">{{item}}</view>
+    </view>
+    <view class="ctrl-bar">
+      <text class="price">￥ {{data.price}}</text>
+      <text class="submit">预订</text>
+    </view>
+  </view>
+</view>

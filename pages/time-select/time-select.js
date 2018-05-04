@@ -15,7 +15,6 @@ Page(
       const currY = now.getFullYear()
       const currM = now.getMonth()
       const currD = now.getDate()
-      console.log(form)
       this.setData({
         startTime: new Date(currY, currM, currD).getTime(),
         endTime: new Date(currY, currM, currD + 90).getTime()

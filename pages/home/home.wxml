@@ -1,7 +1,7 @@
 <view class="home-container">
   <view class="address-bar">
     <image class="icon" src="../../resource/icons/guide.png" bindtap="to" data-url="/pages/address-search/address-search"></image>
-    <text class="location" bindtap="to" data-url="/pages/address-search/address-search">{{props.form.location.name}}</text>
+    <text class="location" bindtap="to" data-url="/pages/address-search/address-search">选择目的地</text>
     <image class="icon" src="../../resource/icons/location.png" bindtap="getLocation"></image>
     <text bindtap="getLocation">定位</text>
   </view>
@@ -24,7 +24,7 @@
     </view>
     <button class="search-btn" bindtap="to" data-url="/pages/business/business">搜索</button>
   </view>
-  <!-- 
+
   <view class="section-container">
     <view class="section-title">
       <image class="icon" src="../../resource/icons/earth.png"></image>
@@ -43,5 +43,5 @@
     <view class="item-list">
       <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img"></image>
     </view>
-  </view> -->
+  </view>
 </view>

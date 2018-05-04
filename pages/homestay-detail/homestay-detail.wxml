@@ -81,10 +81,6 @@
       </scroll-view>
     </view>
 
-    <!-- 编号 -->
-    <!-- <view class="hourse-id">
-      <text class="id-txt">房屋编号: {{fetchData.id}}</text>
-    </view> -->
     <!-- fixed bar -->
     <view class="top-tabs fixed {{showTabs?'':'hide'}}">
       <text class="tab {{showId==='des'?'active':''}}" bind:tap="jump" data-anchor="des">详情信息</text>

@@ -5,7 +5,10 @@
     "pages/time-select/time-select",
     "pages/people-count/people-count",
     "pages/business/business",
-    "pages/business-detail/business-detail",
+    "pages/hotel-detail/hotel-detail",
+    "pages/homestay-detail/homestay-detail",
+    "pages/business-select-by-sort/business-select-by-sort",
+    "pages/business-select-by-filter/business-select-by-filter",
 
     "pages/order/order",
     "pages/account/account"

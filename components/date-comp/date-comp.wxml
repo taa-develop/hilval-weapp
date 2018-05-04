@@ -1,3 +1,4 @@
+<!-- 选择日期的组件 -->
 <view class="date-comp">
   <view class="title">{{currYear}}年 {{currMonth+1}}月</view>
   <view class="wrap" wx:for="{{dates}}" wx:key="{{index}}" bindtap="onClick" data-val="{{item}}">
