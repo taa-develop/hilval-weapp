@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "tag-item": "/components/tag-item/tag-item",
+    "section-title": "/components/section-title/section-title",
+    "tenant-comment": "/components/tenant-comment/tenant-comment"
+  }
+}

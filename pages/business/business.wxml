@@ -1,0 +1,17 @@
+<!-- 从首页点击搜索后,住房提供商列表 -->
+<view class="business">
+  <view class="fixed-box">
+    <view class="fixed">
+      <search-box />
+      <view class="tabs">
+        <text class="tab">位置</text>
+        <text class="tab" data-mask="sort" bind:tap="link" data-url="/pages/business-select-by-sort/business-select-by-sort">{{props.select.sort.name}}</text>
+        <text class="tab" data-mask="filter" bind:tap="link" data-url="/pages/business-select-by-filter/business-select-by-filter">筛选</text>
+      </view>
+    </view>
+  </view>
+  <view class="business-list">
+    <business-item wx:for="{{list}}" wx:key="{{index}}" data="{{item}}" data-id="{{item.id}}" data-type="{{item.type}}" bind:tap="goto"
+    />
+  </view>
+</view>

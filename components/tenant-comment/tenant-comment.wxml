@@ -1,0 +1,10 @@
+<view class="tenant-comment">
+  <view class="tenant">
+    <image class="avatar" src="{{data.avatar}}"></image>
+    <view class="info">
+      <view class="name">{{data.name}}</view>
+      <view class="date">{{data.date}}</view>
+    </view>
+  </view>
+  <view class="content">{{data.content}}</view>
+</view>

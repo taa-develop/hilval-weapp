@@ -1,0 +1,20 @@
+<view class="filter">
+  <view class="title">价格</view>
+  <view class="list">
+    <view class="item {{item.checked?'active':''}}" wx:for="{{prices}}" wx:key="{{index}}" data-obj="{{item}}" bind:tap="handlePrice">{{item.name}}</view>
+  </view>
+  <view class="line"></view>
+
+  <view class="title">类型</view>
+  <view class="list">
+    <view class="item {{item.checked?'active':''}}" wx:for="{{types}}" wx:key="{{index}}" data-obj="{{item}}" data-key="types"
+      bind:tap="handleClick">{{item.name}}</view>
+  </view>
+  <view class="line"></view>
+
+  <view class="title">特色</view>
+  <view class="list">
+    <view class="item {{item.checked?'active':''}}" wx:for="{{characteristics}}" wx:key="{{index}}" data-obj="{{item}}" data-key="characteristics"
+      bind:tap="handleClick">{{item.name}}</view>
+  </view>
+</view>

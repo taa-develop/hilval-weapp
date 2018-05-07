@@ -1,0 +1,8 @@
+.people-count {
+  min-height: 100vh;
+  background-color: #fff;
+}
+.option-item {
+  padding: 15px 10px;
+  border-bottom: 1px solid #f3f3f3;
+}

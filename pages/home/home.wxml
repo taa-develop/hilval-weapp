@@ -1,0 +1,47 @@
+<view class="home-container">
+  <view class="address-bar">
+    <image class="icon" src="../../resource/icons/guide.png" bindtap="to" data-url="/pages/address-search/address-search"></image>
+    <text class="location" bindtap="to" data-url="/pages/address-search/address-search">选择目的地</text>
+    <image class="icon" src="../../resource/icons/location.png" bindtap="getLocation"></image>
+    <text bindtap="getLocation">定位</text>
+  </view>
+
+  <view class="form-container">
+    <view class="dis-flex" data-url="/pages/time-select/time-select" bind:tap="to">
+      <view class="choise-item">
+        <text>{{props.form.checkInText}}</text>
+        <text class="tips">选择入住时间</text>
+      </view>
+      <view class="slash"></view>
+      <view class="choise-item">
+        <text>{{props.form.checkOutText}}</text>
+        <text class="tips">选择退房时间</text>
+      </view>
+    </view>
+    <view class="choise-item" bindtap="to" data-url="/pages/people-count/people-count">
+      <text>{{props.form.people.text}}</text>
+      <text class="tips">选择入住人数</text>
+    </view>
+    <button class="search-btn" bindtap="to" data-url="/pages/business/business">搜索</button>
+  </view>
+
+  <view class="section-container">
+    <view class="section-title">
+      <image class="icon" src="../../resource/icons/earth.png"></image>
+      <text>当季热门</text>
+    </view>
+    <view class="item-list">
+      <image wx:for="{{hot}}" wx:key="{{index}}" class="item-img" src="{{item.img}}"></image>
+    </view>
+  </view>
+
+  <view class="section-container">
+    <view class="section-title">
+      <image class="icon" src="../../resource/icons/note.png"></image>
+      <text>旅游攻略</text>
+    </view>
+    <view class="item-list">
+      <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img" src="{{item.img}}"></image>
+    </view>
+  </view>
+</view>

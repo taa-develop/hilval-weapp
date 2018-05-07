@@ -1,0 +1,23 @@
+<view class="address-search">
+  <div class="search-box">
+    <search-box class="fixed" bind:on-input="onInput" />
+  </div>
+
+  <!-- 默认显示的内容 -->
+  <view wx:if="{{!showList}}">
+    <section-title title="历史搜索" />
+    <view class="list-wrap">
+      <text class="tag-link" wx:for="{{history}}" wx:key="{{index}}" data-url="{{item.url}}" bind:tap="goto">{{item.text}}</text>
+    </view>
+
+    <section-title title="热门推荐" />
+    <view class="list-wrap">
+      <text class="tag-link" wx:for="{{recommend}}" wx:key="{{index}}" data-url="{{item.url}}" bind:tap="goto">{{item.text}}</text>
+    </view>
+  </view>
+
+  <!--  输入内容时,显示的列表 -->
+  <view class="hotel-list" wx:if="{{showList}}">
+    <hotel-item class="item" wx:for="{{list}}" wx:key="{{index}}" data="{{item}}" />
+  </view>
+</view>

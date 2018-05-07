@@ -1,0 +1,9 @@
+.section-title {
+  padding: 10px 0;
+  color: #449284;
+  font-size: 16px;
+  background-color: #fff;
+}
+.have-padding {
+  padding: 10px;
+}

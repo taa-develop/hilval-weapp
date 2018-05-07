@@ -1,0 +1,14 @@
+.sort {
+  background-color: #fff;
+}
+.sort .item {
+  margin-left: 10px;
+  padding: 20px 0;
+  color: #757575;
+}
+.sort .item:not(:last-child) {
+  border-bottom: 1px solid #efefef;
+}
+.sort .item.active {
+  color: rgb(68, 143, 132);
+}

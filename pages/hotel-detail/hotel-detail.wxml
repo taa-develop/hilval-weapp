@@ -1,0 +1,94 @@
+<view class="business-detail-container">
+  <scroll-view scroll-y="{{!showMask}}" class="scroll-container" scroll-into-view="{{toView}}" scroll-with-animation bindscroll="handleScroll">
+
+    <!-- 基本信息 -->
+    <view class="section-wrap" id="des">
+      <image class="preview" src="{{fetchData.img}}"></image>
+      <view class="top-tabs">
+        <text class="tab {{showId==='des'?'active':''}}" bind:tap="jump" data-anchor="des">详情信息</text>
+        <text class="tab {{showId==='comment'?'active':''}}" bind:tap="jump" data-anchor="comment">房客点评</text>
+        <text class="tab {{showId==='info'?'active':''}}" bind:tap="jump" data-anchor="info">住房须知</text>
+      </view>
+      <view class="name">{{fetchData.name}}</view>
+      <view class="tags">
+        <tag-item wx:for="{{fetchData.tags}}" wx:key="{{index}}" text="{{item}}"></tag-item>
+      </view>
+      <view class="shot-des">{{fetchData.shotDes}}</view>
+    </view>
+
+    <!-- 详情 -->
+    <section-title title="详情信息"></section-title>
+    <view class="section-wrap">
+      <text class="sub-title">房屋描述</text>
+      <view class="description">{{fetchData.description}}</view>
+    </view>
+
+    <!-- 酒店房间列表 -->
+    <view class="section-wrap">
+      <text class="sub-title">房间列表</text>
+      <view class="filters">
+        <text class="filter {{item.checked?'active':''}}" wx:for="{{filters}}" wx:key="{{index}}" data-val="{{item.val}}" bind:tap="handleCheck">{{item.name}}</text>
+      </view>
+      <view class="hotel-item" wx:for="{{fetchHotel}}" wx:key="{{index}}" bind:tap="handleShowMask">
+        <image class="img" src="{{item.img}}"></image>
+        <view class="info">
+          <view class="hotel-name">{{item.name}}</view>
+          <view class="detail">{{item.size}} {{item.tag}}</view>
+        </view>
+        <view class="price">￥{{item.price}}起</view>
+      </view>
+    </view>
+
+    <view class="section-wrap">
+      <text class="sub-title">配套设施</text>
+      <view class="facilities">
+        <view class="item" wx:for="{{facilities}}" wx:key="{{index}}">
+          <image wx:if="{{!item.have}}" class="icon" src="{{item.icon}}"></image>
+          <image wx:if="{{item.have}}" class="icon" src="{{item.iconActive}}"></image>
+          <text class="name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-wrap">
+      <text class="sub-title">地址导航</text>
+      <image class="map" bind:tap="gotomap" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525263185285&di=e4827863e07c7e12704906565b5a3cbf&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D87513c60304e251fe2a2ecfc92b6e521%2F5882b2b7d0a20cf4f7c8608576094b36acaf9914.jpg"></image>
+    </view>
+
+    <!-- 评论 -->
+    <section-title title="房客点评"></section-title>
+    <view class="section-wrap" id="comment">
+      <tenant-comment wx:for="{{fetchData.comment}}" wx:key="{{index}}" data="{{item}}"></tenant-comment>
+    </view>
+
+    <!-- 须知 -->
+    <section-title title="住房须知"></section-title>
+    <view class="section-wrap" id="info">
+      <view class="stay-info">入住时间: {{fetchData.info.checkIn}}</view>
+      <view class="stay-info">退房时间: {{fetchData.info.checkOut}}</view>
+      <view class="stay-info">接待时间: {{fetchData.info.receive}}</view>
+      <view class="stay-info">住房押金: {{fetchData.info.deposit}}</view>
+    </view>
+
+    <!-- 更多酒店 -->
+    <section-title title="更多酒店"></section-title>
+    <view class="section-wrap">
+      <scroll-view scroll-x class="more">
+        <view class="more-item" wx:for="{{fetchMore}}" wx:key="{{index}}">
+          <image class="img" src="{{item.img}}"></image>
+          <text class="name">{{item.name}}</text>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- fixed bar -->
+    <view class="top-tabs fixed {{showTabs?'':'hide'}}">
+      <text class="tab {{showId==='des'?'active':''}}" bind:tap="jump" data-anchor="des">详情信息</text>
+      <text class="tab {{showId==='comment'?'active':''}}" bind:tap="jump" data-anchor="comment">房客点评</text>
+      <text class="tab {{showId==='info'?'active':''}}" bind:tap="jump" data-anchor="info">住房须知</text>
+    </view>
+
+    <!-- 遮罩层 -->
+    <hotel-mask-layer bind:hide-hotel-mask="handleHideMask" show="{{showMask}}"></hotel-mask-layer>
+  </scroll-view>
+</view>

@@ -1,0 +1,1 @@
+<view class="section-title {{padding?'have-padding':''}}">{{title}}</view>
