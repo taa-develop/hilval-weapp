@@ -1,4 +1,5 @@
 import { observer, mapStore } from '../../store/tools'
+import { apiGetHouseList } from '../../api/houseList'
 
 const select = mapStore('BusinessSelect')
 Page(
@@ -61,7 +62,7 @@ Page(
       wx.navigateTo({ url })
     },
     onLoad() {
-      console.log(this.props.select.sort.name)
+      console.log('house list api', apiGetHouseList())
     }
   })
 )

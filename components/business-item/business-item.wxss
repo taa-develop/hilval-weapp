@@ -7,7 +7,6 @@
 .img {
   width: 750rpx;
   height: 375rpx;
-  background-color: rgb(236, 177, 177);
 }
 .price {
   position: absolute;
