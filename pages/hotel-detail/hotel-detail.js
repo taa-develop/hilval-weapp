@@ -159,7 +159,6 @@ Page({
       })),
       filters: this.data.fetchData.filters.map(v => ({ ...v, checked: false }))
     })
-    console.log(this)
   },
   jump(e) {
     const a = e.currentTarget.dataset.anchor

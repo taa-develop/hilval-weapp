@@ -8,7 +8,7 @@ class applyForm {
     const d = time.getDate()
     observable(this, {
       place: '',
-      location: { name: '未获取定位' },
+      // location: { name: '未获取定位' },
       checkIn: new Date(y, m, d).getTime(),
       checkOut: new Date(y, m, d + 1).getTime(),
       people: { text: '1人', val: 1 },

@@ -20,7 +20,7 @@
 
     <view class="ctrl-bar">
       <text class="price">￥ {{data.price}}</text>
-      <text class="submit">预订</text>
+      <text class="submit" bind:tap="submit">预订</text>
     </view>
   </view>
 </view>

@@ -1,25 +1,22 @@
 import gql from './nanographql'
 
 const baesUrl = 'https://api.hilval.com/hilval-web/graphql'
-
-function query(token, str, params, successCallback, errorCallback) {
+const request = (type, token, str, params) => (resolve, reject) => {
   wx.request({
     url: baesUrl,
-    data: gql(`query ${str}`)(params),
+    data: gql(`${type} ${str}`)(params),
     method: 'POST',
     header: token,
-    success: res => successCallback && successCallback(res),
-    fail: err => errorCallback && errorCallback(err)
+    success: res => resolve(res),
+    fail: err => reject(err)
   })
 }
-function mutation(str, params, successCallback, errorCallback) {
-  wx.request({
-    url: baesUrl,
-    data: gql(`mutation ${str}`)(params),
-    method: 'POST',
-    header: { token: '12321312' },
-    success: res => successCallback && successCallback(res),
-    fail: err => errorCallback && errorCallback(err)
-  })
+
+function query(token, str, params) {
+  return new Promise(request('query', token, str, params))
 }
+function mutation(token, str, params) {
+  return new Promise(request('mutation', token, str, params))
+}
+
 export { query, mutation, baesUrl }

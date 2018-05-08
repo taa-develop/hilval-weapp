@@ -62,7 +62,7 @@ Page(
       wx.navigateTo({ url })
     },
     onLoad() {
-      console.log('house list api', apiGetHouseList())
+      // console.log('house list api', apiGetHouseList())
     }
   })
 )

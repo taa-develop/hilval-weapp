@@ -6,16 +6,19 @@ class User {
     observable(this, {
       isLogin: false,
       info: {},
-      token: {}
+      token: {},
+      code: null
     })
   }
   updateInfo(info) {
     this.info = info
   }
   login() {
-    apiLogin(({ userInfo, tokenData }) => {
+    apiLogin(({ userInfo, tokenData, code }) => {
       this.info = userInfo
       this.token[tokenData.tokenHeader] = tokenData.tokenPrefix + tokenData.token
+      this.code = code
+      console.log(this)
     })
   }
 }

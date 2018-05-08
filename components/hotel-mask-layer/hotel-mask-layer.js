@@ -29,9 +29,10 @@ Component({
     hide() {
       this.triggerEvent('hide-hotel-mask')
     },
-    submit() {},
-    stopScroll() {
-      return null
+    submit() {
+      wx.navigateTo({
+        url: '/pages/order-confirmation/order-confirmation'
+      })
     }
   },
   ready() {

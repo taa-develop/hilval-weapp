@@ -1,0 +1,31 @@
+<view class="order-confirmation">
+  <view class="house-name">珠海大酒店</view>
+  <view class="info">100m^2 两室一厅 宜住2-4人</view>
+  <image class="preview" src="../../resource/images/hotel.jpeg"></image>
+  <view class="time-bar">
+    <view class="time">2018-05-10</view>
+    <view class="total-info">共 10 晚</view>
+    <view class="time">2018-05-20</view>
+  </view>
+
+  <view class="title">入住人信息</view>
+  <view class="input-wrap">
+    <text class="item-title">姓名</text>
+    <input class="input" type="text" maxlength="16" value="{{customerName}}" data-key="Name" placeholder="请输入姓名" bindinput="handleChange"
+    />
+  </view>
+  <view class="input-wrap">
+    <text class="item-title">手机</text>
+    <input class="input" type="number" maxlength="16" value="{{customerPhone}}" data-key="Phone" placeholder="请输入手机号码" bindinput="handleChange"
+    />
+  </view>
+  <view class="input-wrap">
+    <text class="item-title">邮箱</text>
+    <input class="input" type="text" maxlength="16" value="{{customerEmail}}" data-key="Email" placeholder="请输入邮箱(选填)" bindinput="handleChange"
+    />
+  </view>
+  <view class="pay-bar">
+    <view class="price">￥ 333.00</view>
+    <view class="submit" bind:tap="submit">付款</view>
+  </view>
+</view>

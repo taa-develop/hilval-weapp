@@ -28,13 +28,14 @@ function getToken(data, userInfo, sCallback, eCallback) {
       tokenPrefix
     }
   }`
+  console.log(gql(str)({ data }))
   wx.request({
     url: baesUrl,
     data: gql(str)({ data }),
     method: 'POST',
     success: res => {
       if (sCallback) {
-        sCallback({ userInfo, tokenData: res.data.data.login })
+        sCallback({ userInfo, tokenData: res.data.data.login, code: data.code })
       }
     },
     fail: err => {
