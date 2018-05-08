@@ -1,5 +1,5 @@
 <view class="business-detail-container">
-  <scroll-view scroll-y="{{!showMask}}" class="scroll-container" scroll-into-view="{{toView}}" scroll-with-animation bindscroll="handleScroll">
+  <scroll-view scroll-y="{{!showMask}}" class="scroll-container" scroll-into-view="{{toView}}" scroll-with-animation bind:scroll="handleScroll">
 
     <!-- 基本信息 -->
     <view class="section-wrap" id="des">

@@ -159,14 +159,17 @@ Page({
       })),
       filters: this.data.fetchData.filters.map(v => ({ ...v, checked: false }))
     })
+    console.log(this)
   },
   jump(e) {
     const a = e.currentTarget.dataset.anchor
     this.setData({ toView: a })
   },
+
   handleScroll(e) {
     // show fixed bar
-    this.setData({ showTabs: e.detail.scrollTop > 0.5 * this.data.windowHeight })
+    const showTabs = e.detail.scrollTop > 0.5 * this.data.windowHeight
+    this.data.showTabs !== showTabs && this.setData({ showTabs })
     this.data.query
       .selectAll('#des,#comment,#info')
       .boundingClientRect(function(rects) {})
@@ -178,7 +181,7 @@ Page({
             id = v.id
           }
         })
-        this.setData({ showId: id })
+        this.data.showId !== id && this.setData({ showId: id })
       })
   },
   handleCheck(e) {
