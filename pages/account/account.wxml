@@ -29,17 +29,22 @@
     </view>
   </view>
   <view class="nav-group">
-    <view class="nav-link">
+    <view class="nav-link" data-url="" bind:tap="goto">
       <image class="icon" src="../../resource/icons/order-active.png"></image>
       <text class="text">全部订单</text>
       <image class="arrow" src="../../resource/icons/arrow.png"></image>
     </view>
-    <view class="nav-link">
+    <view class="nav-link" data-url="tenants" bind:tap="goto">
+      <image class="icon" src="../../resource/icons/team.png"></image>
+      <text class="text">常用出行人</text>
+      <image class="arrow" src="../../resource/icons/arrow.png"></image>
+    </view>
+    <view class="nav-link" data-url="" bind:tap="goto">
       <image class="icon" src="../../resource/icons/comment.png"></image>
       <text class="text">评价</text>
       <image class="arrow" src="../../resource/icons/arrow.png"></image>
     </view>
-    <view class="nav-link">
+    <view class="nav-link" data-url="" bind:tap="goto">
       <image class="icon" src="../../resource/icons/vip.png"></image>
       <text class="text">会员</text>
       <image class="arrow" src="../../resource/icons/arrow.png"></image>
@@ -47,12 +52,12 @@
   </view>
 
   <view class="nav-group">
-    <view class="nav-link">
+    <view class="nav-link" data-url="" bind:tap="goto">
       <image class="icon" src="../../resource/icons/lang.png"></image>
       <text class="text">语言</text>
       <image class="arrow" src="../../resource/icons/arrow.png"></image>
     </view>
-    <view class="nav-link">
+    <view class="nav-link" data-url="" bind:tap="goto">
       <image class="icon" src="../../resource/icons/service.png"></image>
       <text class="text">客服</text>
       <image class="arrow" src="../../resource/icons/arrow.png"></image>

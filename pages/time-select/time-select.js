@@ -1,4 +1,4 @@
-import { observer, mapStore } from '../../store/tools'
+import { observer, mapStore, setStore } from '../../store/tools'
 const form = mapStore('ApplyForm')
 Page(
   observer({
@@ -39,20 +39,26 @@ Page(
       this.setData({ selectStatus: (this.data.selectStatus + 1) % 2 })
       if (this.data.selectStatus === 0) {
         if (form.checkIn < timestamp) {
-          form.update({ checkOut: timestamp })
+          // form.update({ checkOut: timestamp })
+          setStore(form, { checkOut: timestamp })
         } else {
           const ci = form.checkIn
-          form.update({ checkIn: timestamp, checkOut: ci })
+          // form.update({ checkIn: timestamp, checkOut: ci })
+          setStore(form, { checkIn: timestamp, checkOut: ci })
         }
         wx.navigateBack()
       } else {
-        form.update({ checkIn: timestamp, checkOut: 0 })
+        // form.update({ checkIn: timestamp, checkOut: 0 })
+        setStore(form, { checkIn: timestamp, checkOut: 0 })
       }
     },
     supplement() {
       // 当只选了'check in',自动默认选择次日为'check out'
       if (!form.checkOut) {
-        form.update({
+        // form.update({
+        //   checkOut: new Date(form.checkIn + 24 * 60 * 60 * 1000).getTime()
+        // })
+        setStore(form, {
           checkOut: new Date(form.checkIn + 24 * 60 * 60 * 1000).getTime()
         })
       }

@@ -1,0 +1,10 @@
+<!-- 
+  用户保存的出行人列表,用于订房时选择
+ -->
+<view class="tenants">
+  <view class="add-tenant">添加出行人</view>
+
+  <view class="tenant-list">
+    <view class="tenant-item"></view>
+  </view>
+</view>

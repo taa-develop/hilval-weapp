@@ -2,14 +2,17 @@ import gql from '../utils/nanographql'
 import { baesUrl } from '../utils/http'
 
 function getInfo(code, sCallback, eCallback) {
+  console.log('debug get user info')
   const data = { code }
   wx.getUserInfo({
     success: infoResult => {
+      console.log('get user info success')
       data.encryptedData = infoResult.encryptedData
       data.iv = infoResult.iv
       wx.getLocation({
         type: 'wgs84',
         success: locResult => {
+          console.log('get location success')
           data.lat = locResult.latitude
           data.lon = locResult.longitude
           getToken(data, infoResult.userInfo, sCallback)
@@ -28,12 +31,12 @@ function getToken(data, userInfo, sCallback, eCallback) {
       tokenPrefix
     }
   }`
-  console.log(gql(str)({ data }))
   wx.request({
     url: baesUrl,
     data: gql(str)({ data }),
     method: 'POST',
     success: res => {
+      console.log('get token success')
       if (sCallback) {
         sCallback({ userInfo, tokenData: res.data.data.login, code: data.code })
       }
@@ -49,7 +52,25 @@ function getToken(data, userInfo, sCallback, eCallback) {
 export default function apiLogin(successCallback, errorCallback) {
   wx.login({
     success: loginResult => {
-      getInfo(loginResult.code, successCallback)
+      wx.getSetting({
+        success: settingRes => {
+          if (
+            settingRes.authSetting['scope.userInfo'] &&
+            settingRes.authSetting['scope.userLocation']
+          ) {
+            getInfo(loginResult.code, successCallback)
+          } else {
+            // 未授权时,重新请求授权
+            console.log('未授权')
+            wx.authorize({
+              scope: 'scope.userInfo',
+              success() {
+                console.log('授权 用户信息')
+              }
+            })
+          }
+        }
+      })
     }
   })
 }

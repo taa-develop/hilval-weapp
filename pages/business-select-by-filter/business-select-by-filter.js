@@ -1,4 +1,4 @@
-import { observer, mapStore } from '../../store/tools'
+import { observer, mapStore, setStore } from '../../store/tools'
 
 const select = mapStore('BusinessSelect')
 Page(
@@ -25,7 +25,7 @@ Page(
     props: { select },
     handlePrice(e) {
       const { obj } = e.currentTarget.dataset
-      select.set({ price: { name: obj.name, value: obj.value } })
+      setStore(select, { price: { name: obj.name, value: obj.value } })
       this.setData({
         prices: this.data.prices.map(v => ({ ...v, checked: v.value === obj.value }))
       })
@@ -37,7 +37,7 @@ Page(
       newState[key] = isIn
         ? select[key].filter(v => v.value !== obj.value)
         : [...select[key], { name: obj.name, value: obj.value }]
-      select.set(newState)
+      setStore(select, newState)
       // update data
       const newData = {}
       newData[key] = this.data[key].map(v => ({

@@ -11,7 +11,9 @@
     "pages/business-select-by-filter/business-select-by-filter",
 
     "pages/order/order",
+
     "pages/account/account",
+    "pages/tenants/tenants",
 
     "pages/order-confirmation/order-confirmation"
   ],

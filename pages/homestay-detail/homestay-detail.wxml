@@ -79,7 +79,7 @@
         <image class="call-icon" src="../../resource/icons/call.png" bind:tap="phoneCall"></image>
         <view class="submit-bar">
           <text class="price">￥ {{fetchData.price}}</text>
-          <text class="submit">预订</text>
+          <text class="submit" bind:tap="submit">预订</text>
         </view>
       </view>
     </view>

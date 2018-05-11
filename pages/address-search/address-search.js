@@ -35,19 +35,18 @@ Page({
       { name: '擦擦分我问', add: '珠海 香洲区', type: 1, price: '34' }
     ],
     history: [
-      { text: '草李赖赖', url: '/pages/home/home' },
-      { text: '丢你螺母', url: '/pages/home/home' },
-      { text: '撒币', url: '/pages/home/home' },
-      { text: '塞塞', url: '/pages/home/home' },
-      { text: '嘞锅貂茅', url: '/pages/home/home' },
-      { text: '咙撒哉', url: '/pages/home/home' },
-      { text: '窝丁雷锅肥,塞泼钙', url: '/pages/home/home' }
+      { text: '广州', url: '/pages/home/home' },
+      { text: '单房', url: '/pages/home/home' },
+      { text: '套房', url: '/pages/home/home' },
+      { text: '近地铁', url: '/pages/home/home' },
+      { text: '市中心', url: '/pages/home/home' },
+      { text: '小旅馆', url: '/pages/home/home' }
     ],
     recommend: [
-      { text: '杭州羊肉串小卖部', url: '' },
-      { text: '青岛雷锋塔', url: '' },
-      { text: '青藏高原高速公路钱留下休息站', url: '' },
-      { text: '我家', url: '' }
+      { text: '温馨小家', url: '' },
+      { text: '景区旅馆', url: '' },
+      { text: '三亚', url: '' },
+      { text: '马尔代夫', url: '' }
     ]
   },
   goto(e) {

@@ -1,0 +1,30 @@
+.order-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+/* tabs */
+.top-tabs {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  transition: all 0.25s;
+}
+.tab {
+  width: 30%;
+  padding: 10px 0;
+  text-align: center;
+  border-bottom: 2px solid transparent;
+}
+.tab.active {
+  color: rgb(68, 143, 132);
+  border-color: rgb(68, 143, 132);
+}
+
+/* content */
+.contents {
+  flex: 1;
+  /* background-color: rgb(206, 110, 110); */
+  overflow-y: scroll;
+}

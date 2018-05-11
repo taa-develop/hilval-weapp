@@ -22,13 +22,5 @@ class applyForm {
       }
     })
   }
-  update(options) {
-    const obj = this
-    Object.keys(options).forEach(key => {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        obj[key] = options[key]
-      }
-    })
-  }
 }
 export default new applyForm()

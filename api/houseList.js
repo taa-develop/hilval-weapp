@@ -1,18 +1,18 @@
 import { query } from '../utils/http'
-import store from '../store/index'
+import { mapStore } from '../store/tools'
+const token = mapStore('User').token
 
 function apiGetHouseList(success, fail) {
   const str = `
     {
-      list(){
+      queryHouseType{
         id
-        name
-        price
+        label
+        code
       }
     }
   `
-  console.log('token obj ===>', store.User.token)
-  query(store.User.token, str, success, fail)
+  query(token, str)
 }
 
 export { apiGetHouseList }

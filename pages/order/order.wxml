@@ -1,1 +1,14 @@
-<view>订单</view>
+<import src="./unpaid.wxml" />
+<import src="./unstarted.wxml" />
+<import src="./history.wxml" />
+
+<view class="order-page">
+  <view class="top-tabs">
+    <view wx:for="{{tabs}}" wx:key="{{index}}" class="tab {{tempName===item.tempName?'active':''}}" data-temp="{{item.tempName}}"
+      bind:tap="tabClick">{{item.name}}</view>
+  </view>
+
+  <view class="contents">
+    <template is="{{tempName}}" data="{{ name:'xxx',list:[1,2,3] }}" />
+  </view>
+</view>

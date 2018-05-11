@@ -1,7 +1,16 @@
 import gql from './nanographql'
 
 const baesUrl = 'https://api.hilval.com/hilval-web/graphql'
-const request = (type, token, str, params) => (resolve, reject) => {
+const request = (
+  type,
+  token = () => {
+    throw 'token is missing'
+  },
+  str = () => {
+    throw 'operetion string is missing'
+  },
+  params
+) => (resolve, reject) => {
   wx.request({
     url: baesUrl,
     data: gql(`${type} ${str}`)(params),

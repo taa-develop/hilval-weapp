@@ -159,5 +159,11 @@ Page({
   },
   phoneCall() {
     wx.makePhoneCall({ phoneNumber: this.data.fetchData.phone })
+  },
+
+  submit() {
+    wx.navigateTo({
+      url: '/pages/order-confirmation/order-confirmation'
+    })
   }
 })

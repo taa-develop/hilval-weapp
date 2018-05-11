@@ -1,4 +1,4 @@
-import { observer, mapStore } from '../../store/tools'
+import { observer, mapStore, setStore } from '../../store/tools'
 
 const select = mapStore('BusinessSelect')
 Page(
@@ -13,7 +13,7 @@ Page(
     props: { select },
     handleClick(e) {
       const { obj } = e.currentTarget.dataset
-      select.set({ sort: obj })
+      setStore(select, { sort: obj })
       wx.navigateBack()
     }
   })

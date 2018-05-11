@@ -44,4 +44,5 @@
       <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img" src="{{item.img}}"></image>
     </view>
   </view>
+  <button open-type="getUserInfo">get info</button>
 </view>
