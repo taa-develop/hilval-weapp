@@ -1,0 +1,43 @@
+.tenants {
+  min-height: 100vh;
+  padding-top: 20px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.add-tenant {
+  width: 5em;
+  margin: 0 auto 20px;
+  padding: 4px 10px;
+  background-color: rgb(68, 143, 132);
+  color: #ffffff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.tenant-item {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.tenant-item > .name {
+  width: 4em;
+  margin-right: 0.5em;
+}
+
+.tenant-item > .phone {
+  flex: 1;
+}
+
+.tenant-item > .check-status {
+  padding: 2px 6px;
+  border-radius: 5px;
+  background-color: rgba(68, 143, 132, 1);
+  color: #ffffff;
+  /* background-color: rgba(68, 143, 132, 0.2);
+  color: rgb(68, 143, 132); */
+  font-size: 12px;
+}

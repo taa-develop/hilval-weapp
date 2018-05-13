@@ -55,13 +55,21 @@
 }
 
 /* login */
+.login-bar {
+  text-align: center;
+}
 .login-btn {
-  width: 4.5em;
+  display: inline-block;
   margin: 10px auto;
-  padding: 4px 10px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
   background-color: rgb(68, 143, 132);
   color: #ffffff;
   border-radius: 5px;
+  line-height: 1;
+  font-size: 16px;
 }
 
 /* nav link */

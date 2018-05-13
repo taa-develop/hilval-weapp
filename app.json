@@ -14,6 +14,8 @@
 
     "pages/account/account",
     "pages/tenants/tenants",
+    "pages/edit-tenant/edit-tenant",
+    "pages/add-tenant/add-tenant",
 
     "pages/order-confirmation/order-confirmation"
   ],

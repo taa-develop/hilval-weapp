@@ -1,0 +1,37 @@
+.edit-tenant {
+  min-height: 100vh;
+  background-color: #fff;
+}
+
+.edit-tenant > .item {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+  padding: 10px 0;
+}
+
+.edit-tenant > .item > .title {
+  width: 3em;
+  text-align: right;
+}
+
+.edit-tenant > .item > .input {
+  flex: 1;
+  margin-left: 1em;
+  padding: 2px 8px;
+  border-radius: 5px;
+  border: 1px solid #efefef;
+}
+
+.ctrl-bar {
+  display: flex;
+  margin-top: 20px;
+  justify-content: space-around;
+}
+.ctrl-bar > .btn {
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-size: 120%;
+  background-color: rgba(68, 143, 132, 0.8);
+  color: #ffffff;
+}

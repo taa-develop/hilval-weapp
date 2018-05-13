@@ -9,6 +9,9 @@
   </view>
 
   <view class="contents">
-    <template is="{{tempName}}" data="{{ name:'xxx',list:[1,2,3] }}" />
+    <!-- <template is="{{tempName}}" data="{{usingData}}" /> -->
+    <view class="order-list">
+      <order-item wx:for="{{usingData}}" wx:key="{{index}}" order="{{item}}"></order-item>
+    </view>
   </view>
 </view>

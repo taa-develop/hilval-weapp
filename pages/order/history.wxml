@@ -1,8 +1,5 @@
 <template name="history">
-  <view class="c">
-    <view class="name">{{name}}</view>
-    <view class="l">
-      <text class="t" wx:for="{{list}}" wx:key="{{index}}">{{item}}</text>
-    </view>
+  <view class="order-list">
+    <order-item></order-item>
   </view>
 </template>

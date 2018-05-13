@@ -4,14 +4,18 @@ const token = mapStore('User').token
 
 function apiGetHouseList(success, fail) {
   const str = `
-    {
-      queryHouseType{
+  {
+    queryHomestays(
+      request:{page:{pageNumber:1}}
+    ){
+      page{
+        pageNumber
+      }
+      datas{
         id
-        label
-        code
       }
     }
-  `
+  }  `
   query(token, str)
 }
 

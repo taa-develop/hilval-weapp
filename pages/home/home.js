@@ -4,6 +4,7 @@ const form = mapStore('ApplyForm')
 Page(
   observer({
     data: {
+      isFirstIn: true,
       location: '珠海',
       checkInDate: '',
       checkOutDate: '04-27 12:00',
@@ -76,6 +77,11 @@ Page(
     },
     to(e) {
       wx.navigateTo({ url: e.currentTarget.dataset.url })
+    },
+
+    openAuthorize(e) {
+      this.setData({ isFirstIn: false })
+      console.log(e)
     }
   })
 )

@@ -1,0 +1,28 @@
+<!-- 
+  订单记录项目,包含不同的订单状态
+ -->
+<view class="order-item">
+  <view class="top-bar">
+    <image class="logo" src="{{order.logo}}"></image>
+    <view class="content">
+      <view class="line-one">
+        <text class="name">{{order.name}}</text>
+        <text class="check-status">{{order.checkStatus}}</text>
+      </view>
+      <view class="line-two">{{order.info}}</view>
+    </view>
+  </view>
+
+  <view class="date-bar">
+    <view class="date">{{order.checkInDate}}</view>
+    <view class="date">{{order.checkOutDate}}</view>
+  </view>
+
+  <view class="bottom-bar">
+    <view class="price">￥{{order.price}}</view>
+    <view class="ctrl-bar">
+      <view class="btn">评论</view>
+      <view class="btn">已入住</view>
+    </view>
+  </view>
+</view>

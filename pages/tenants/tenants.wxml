@@ -2,9 +2,24 @@
   用户保存的出行人列表,用于订房时选择
  -->
 <view class="tenants">
-  <view class="add-tenant">添加出行人</view>
+  <view class="add-tenant" data-url="add-tenant" bind:tap="goto">添加出行人
+  </view>
 
   <view class="tenant-list">
-    <view class="tenant-item"></view>
+    <view class="tenant-item" data-url="edit-tenant?bb=aa" bind:tap="goto">
+      <text class="name">张三</text>
+      <text class="phone">188-3655-8898</text>
+      <text class="check-status">审核通过</text>
+    </view>
+    <view class="tenant-item" data-url="edit-tenant?bb=aa" bind:tap="goto">
+      <text class="name">张三</text>
+      <text class="phone">188-3655-8898</text>
+      <text class="check-status">审核通过</text>
+    </view>
+    <view class="tenant-item" data-url="edit-tenant?bb=aa" bind:tap="goto">
+      <text class="name">张三</text>
+      <text class="phone">188-3655-8898</text>
+      <text class="check-status">审核通过</text>
+    </view>
   </view>
 </view>

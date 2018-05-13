@@ -6,7 +6,9 @@
       <view class="user-name">{{props.user.info.nickName}}</view>
 
       <!-- 登陆前的按钮 -->
-      <view class="login-btn" wx:if="{{!props.user.isLogin}}" bind:tap="handleLogin">登陆/注册</view>
+      <view class="login-bar">
+        <button class="login-btn" wx:if="{{!props.user.isLogin}}" open-type="getUserInfo" bind:tap="handleLogin">登陆/注册</button>
+      </view>
 
       <!-- 登陆后的信息 -->
       <view class="message-bar" wx:if="{{props.user.isLogin}}">

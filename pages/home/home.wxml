@@ -44,5 +44,7 @@
       <image wx:for="{{strategy}}" wx:key="{{index}}" class="item-img" src="{{item.img}}"></image>
     </view>
   </view>
-  <button open-type="getUserInfo">get info</button>
+
+  <!-- 第一次进入app,强制用户打开授权界面 -->
+  <button class="cover-login" open-type="getUserInfo" bind:tap="openAuthorize" wx:if="{{isFirstIn}}"></button>
 </view>

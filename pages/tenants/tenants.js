@@ -1,3 +1,7 @@
+import { navTo } from '../../utils/index'
+
 Page({
-  data: {}
+  data: {},
+
+  goto: e => navTo(e)
 })
