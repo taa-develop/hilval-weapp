@@ -26,6 +26,6 @@ Page({
 
   tabClick(e) {
     const { temp } = e.currentTarget.dataset
-    this.setData({ usingData: this.data[`${temp}List`] })
+    this.setData({ tempName: temp, usingData: this.data[`${temp}List`] })
   }
 })
