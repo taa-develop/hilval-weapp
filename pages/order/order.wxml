@@ -1,6 +1,6 @@
-<import src="./unpaid.wxml" />
+<!-- <import src="./unpaid.wxml" />
 <import src="./unstarted.wxml" />
-<import src="./history.wxml" />
+<import src="./history.wxml" /> -->
 
 <view class="order-page">
   <view class="top-tabs">
@@ -9,7 +9,6 @@
   </view>
 
   <view class="contents">
-    <!-- <template is="{{tempName}}" data="{{usingData}}" /> -->
     <view class="order-list">
       <order-item wx:for="{{usingData}}" wx:key="{{index}}" order="{{item}}"></order-item>
     </view>

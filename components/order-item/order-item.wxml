@@ -9,20 +9,20 @@
         <text class="name">{{order.name}}</text>
         <text class="check-status">{{order.checkStatus}}</text>
       </view>
-      <view class="line-two">{{order.info}}</view>
+      <view class="info">{{order.info}}</view>
     </view>
   </view>
 
   <view class="date-bar">
-    <view class="date">{{order.checkInDate}}</view>
-    <view class="date">{{order.checkOutDate}}</view>
+    <view class="date">{{order.checkInDate}} 入住</view>
+    <view class="date">{{order.checkOutDate}} 退房</view>
   </view>
 
   <view class="bottom-bar">
     <view class="price">￥{{order.price}}</view>
     <view class="ctrl-bar">
-      <view class="btn">评论</view>
-      <view class="btn">已入住</view>
+      <text class="btn">评论</text>
+      <text class="btn fill">已入住</text>
     </view>
   </view>
 </view>
