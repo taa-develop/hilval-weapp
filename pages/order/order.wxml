@@ -13,4 +13,6 @@
       <order-item wx:for="{{usingData}}" wx:key="{{index}}" order="{{item}}"></order-item>
     </view>
   </view>
+
+  <login-cover-layer isLogin="{{props.app.isLogin}}"></login-cover-layer>
 </view>

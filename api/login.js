@@ -37,7 +37,6 @@ function saveUserInfo(tokenObj, info) {
   `
   const token = {}
   token[tokenObj.tokenHeader] = tokenObj.tokenPrefix + tokenObj.token
-  console.log(info)
   wx.request({
     url: baesUrl,
     data: gql(str)({ info: { encryptedData: info.encryptedData, iv: info.iv } }),
@@ -65,7 +64,7 @@ function apiLogin(successCallback, errorCallback) {
             data,
             tokenObj => {
               if (successCallback) {
-                successCallback()
+                successCallback(tokenObj)
               }
               wx.getSetting({
                 success: settingRes => {
@@ -76,6 +75,9 @@ function apiLogin(successCallback, errorCallback) {
                         console.log('已获取用户信息')
                         const info = { encryptedData: userRes.encryptedData, iv: userRes.iv }
                         saveUserInfo(tokenObj, info)
+                        if (successCallback) {
+                          successCallback(null, info)
+                        }
                       }
                     })
                   }

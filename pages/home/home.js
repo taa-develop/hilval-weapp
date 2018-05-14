@@ -1,5 +1,6 @@
 import { observer, mapStore } from '../../store/tools'
 
+const app = mapStore('App')
 const form = mapStore('ApplyForm')
 // const user = mapStore('User')
 Page(
@@ -57,6 +58,7 @@ Page(
       ]
     },
     props: {
+      app,
       form
     },
     onLoad: function() {},

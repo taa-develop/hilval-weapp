@@ -65,4 +65,6 @@
       <image class="arrow" src="../../resource/icons/arrow.png"></image>
     </view>
   </view>
+
+  <login-cover-layer isLogin="{{props.app.isLogin}}"></login-cover-layer>
 </view>

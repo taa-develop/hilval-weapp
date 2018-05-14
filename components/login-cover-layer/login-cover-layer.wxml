@@ -1,0 +1,8 @@
+<!-- 
+  出现在首次登陆神奇的遮罩层;
+  如果未授权登陆,则显示该遮罩层,引导用户登陆
+ -->
+
+<view class="login-cover-layer">
+  <button class="cover-btn {{isLogin?'hidden':''}}" open-type="getUserInfo" bind:getuserinfo="getUserInfo">{{isLogin}}</button>
+</view>

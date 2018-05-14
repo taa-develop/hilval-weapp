@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "订单",
   "usingComponents": {
-    "order-item": "../../components/order-item/order-item"
+    "order-item": "../../components/order-item/order-item",
+    "login-cover-layer": "/components/login-cover-layer/login-cover-layer"
   }
 }

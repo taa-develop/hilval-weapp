@@ -5,12 +5,18 @@ class App {
   constructor() {
     observable(this, {
       isLogin: false,
-      token: {},
-      code: null
+      token: {}
     })
   }
   login() {
-    apiLogin()
+    apiLogin((tokenObj, infoObj) => {
+      if (tokenObj) {
+        this.token[tokenObj.tokenHeader] = `${tokenObj.tokenPrefix}${tokenObj.token}`
+      }
+      if (infoObj) {
+        this.isLogin = true
+      }
+    })
   }
 }
 export default new App()
