@@ -46,5 +46,5 @@
   </view>
 
   <!-- 第一次进入app,强制用户打开授权界面 -->
-  <button class="cover-login" open-type="getUserInfo" bind:tap="openAuthorize" wx:if="{{isFirstIn}}"></button>
+  <button class="cover-login" open-type="getUserInfo" bind:getuserinfo="openAuthorize" wx:if="{{isFirstIn}}"></button>
 </view>

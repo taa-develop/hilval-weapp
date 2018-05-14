@@ -1,6 +1,7 @@
 import { observer, mapStore } from '../../store/tools'
 
 const form = mapStore('ApplyForm')
+// const user = mapStore('User')
 Page(
   observer({
     data: {
@@ -80,8 +81,11 @@ Page(
     },
 
     openAuthorize(e) {
-      this.setData({ isFirstIn: false })
       console.log(e)
+      this.setData({ isFirstIn: false })
+      const { encryptedData, iv, userInfo } = e.detail
+      console.log('button to get user info ===>', encryptedData, iv, userInfo)
+      // user.saveUserInfo({ encryptedData, iv })
     }
   })
 )

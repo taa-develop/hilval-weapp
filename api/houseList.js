@@ -1,22 +1,45 @@
+import gql from '../utils/nanographql'
 import { query } from '../utils/http'
 import { mapStore } from '../store/tools'
 const token = mapStore('User').token
 
-function apiGetHouseList(success, fail) {
-  const str = `
-  {
-    queryHomestays(
-      request:{page:{pageNumber:1}}
-    ){
-      page{
+function apiGetHouseList(request) {
+  const str = `($request:HomestayQueryRequest){
+    queryHomestays(request: $request){
+      page {
         pageNumber
+        pageSize
+        totalCount
+        totalPages
+        hasNext
       }
       datas{
         id
+        name
+        picture
+        price
       }
     }
-  }  `
-  query(token, str)
+  }`
+  const params = { request: { page: { pageSize: 10 }, ...request } }
+  return query(token, str, params)
 }
 
-export { apiGetHouseList }
+function getHouseDetail(id = 1) {
+  const str = `
+    ($id:Long!){
+      homestayDetail(id:$id){
+        id
+        name
+        address
+        picture
+        feature
+        lon
+        lat
+      }
+    }
+  `
+  const params = { id }
+  return query(token, str, params)
+}
+export { apiGetHouseList, getHouseDetail }

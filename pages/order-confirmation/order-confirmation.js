@@ -1,25 +1,11 @@
-import apiUser from '../../api/user'
-Page({
-  data: {
-    houseId: null,
-    customerName: '',
-    customerPhone: '',
-    customerEmail: ''
-  },
+import { navTo } from '../../utils/index'
 
-  // update from
-  handleChange(e) {
-    const key = e.currentTarget.dataset.key
-    const val = e.detail.value
-    const newData = {}
-    newData[`customer${key}`] = val
-    this.setData(newData)
-  },
+Page({
+  data: {},
+
+  goto: e => navTo(e),
 
   submit() {
     console.log(this.data)
-    apiUser().then(res => {
-      console.log('api response', res)
-    })
   }
 })

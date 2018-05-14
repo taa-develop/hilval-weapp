@@ -1,0 +1,28 @@
+.add-tenant-for-order {
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: #fff;
+}
+.tenant {
+  display: flex;
+  align-items: center;
+  margin: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #efefef;
+}
+
+.name {
+  width: 4em;
+}
+.phone {
+  flex: 1;
+}
+
+.check-icon {
+  width: 20px;
+  height: 20px;
+}
+.check-icon.hidden {
+  display: none;
+}

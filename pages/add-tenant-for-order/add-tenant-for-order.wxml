@@ -1,0 +1,17 @@
+<!-- 
+  在确认订单时,选择入住人信息
+ -->
+
+<view class="add-tenant-for-order">
+  <view class="goto-admin-tenant">管理出行人</view>
+  <view class="submit" bind:tap="backToOrder">确定</view>
+
+  <view class="tenants-list">
+    <view class="tenant" wx:for="{{tenants}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="handleClick">
+      <text class="name">{{item.name}}</text>
+      <text class="phone">189-3834-8743</text>
+      <image class="check-icon {{item.checked?'hidden':''}}" src="../../resource/icons/check.png"></image>
+      <image class="check-icon {{item.checked?'':'hidden'}}" src="../../resource/icons/check-active.png"></image>
+    </view>
+  </view>
+</view>

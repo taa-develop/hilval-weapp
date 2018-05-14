@@ -11,12 +11,6 @@ Page(
     onLoad: function() {
       console.log(user)
       if (user.info) return
-      wx.getUserInfo({
-        success: res => {
-          console.log('获取信息')
-          user.updateInfo(res.userInfo)
-        }
-      })
     },
     handleLogin() {
       console.log('login')

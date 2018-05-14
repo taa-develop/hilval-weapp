@@ -1,4 +1,5 @@
 import { observer, mapStore } from '../../store/tools'
+import { apiGetHouseList, getHouseDetail } from '../../api/houseList'
 
 const select = mapStore('BusinessSelect')
 Page(
@@ -60,6 +61,9 @@ Page(
       const { url } = e.currentTarget.dataset
       wx.navigateTo({ url })
     },
-    onLoad() {}
+    onLoad() {
+      apiGetHouseList()
+      getHouseDetail()
+    }
   })
 )

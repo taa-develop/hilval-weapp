@@ -9,6 +9,7 @@
     "pages/homestay-detail/homestay-detail",
     "pages/business-select-by-sort/business-select-by-sort",
     "pages/business-select-by-filter/business-select-by-filter",
+    "pages/add-tenant-for-order/add-tenant-for-order",
 
     "pages/order/order",
 

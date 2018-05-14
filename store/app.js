@@ -1,15 +1,16 @@
 import { observable } from './tools'
 import { apiLogin } from '../api/login'
 
-class User {
+class App {
   constructor() {
     observable(this, {
-      info: {}
+      isLogin: false,
+      token: {},
+      code: null
     })
   }
-
   login() {
     apiLogin()
   }
 }
-export default new User()
+export default new App()

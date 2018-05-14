@@ -8,30 +8,33 @@
   align-items: center;
   margin: 0 20px;
   padding: 10px 0;
+  border-bottom: 1px solid #efefef;
 }
 
 .edit-tenant > .item > .title {
   width: 3em;
-  text-align: right;
+  /* text-align: right; */
 }
 
 .edit-tenant > .item > .input {
   flex: 1;
   margin-left: 1em;
   padding: 2px 8px;
-  border-radius: 5px;
-  border: 1px solid #efefef;
+  /* border-radius: 5px; */
+  /* border: 1px solid #efefef; */
 }
 
-.ctrl-bar {
-  display: flex;
-  margin-top: 20px;
-  justify-content: space-around;
+.ctrl-wrap {
+  margin-top: 30px;
 }
-.ctrl-bar > .btn {
-  padding: 4px 8px;
-  border-radius: 5px;
-  font-size: 120%;
-  background-color: rgba(68, 143, 132, 0.8);
-  color: #ffffff;
+.ctrl-btn {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #efefef;
+}
+.red {
+  color: #ec9191;
+}
+.green {
+  color: rgb(68, 143, 132);
 }

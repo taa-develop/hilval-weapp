@@ -1,6 +1,6 @@
 .order-confirmation {
   min-height: 100vh;
-  padding: 10px;
+  padding: 20px;
   box-sizing: border-box;
   background-color: #fff;
 }
@@ -26,22 +26,38 @@
   color: rgb(68, 143, 132);
 }
 
-.title {
-  font-size: 110%;
-}
-.input-wrap {
+.title-bar {
   display: flex;
   align-items: center;
-  margin: 10px;
+  margin: 20px 0;
+}
+.title {
+  flex: 1;
+  font-size: 110%;
+}
+.add-tenant-btn {
+  width: 24px;
+  height: 24px;
+}
+
+.tenants-list {
+}
+.tenant-item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  padding-bottom: 10px;
   border-bottom: 1px solid #efefef;
 }
-.item-title {
-  width: 3em;
-  margin-right: 0.5em;
+.name {
+  width: 4em;
 }
-.input {
+.phone {
   flex: 1;
-  padding: 2px 4px;
+}
+.del-btn {
+  width: 25px;
+  height: 25px;
 }
 
 .pay-bar {

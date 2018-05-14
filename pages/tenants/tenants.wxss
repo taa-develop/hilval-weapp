@@ -7,12 +7,14 @@
 
 .add-tenant {
   width: 5em;
-  margin: 0 auto 20px;
+  margin: 10px;
   padding: 4px 10px;
-  background-color: rgb(68, 143, 132);
-  color: #ffffff;
-  border-radius: 5px;
+  color: rgba(68, 143, 132, 1);
   text-align: center;
+  font-size: 16px;
+  line-height: 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(68, 143, 132, 1);
 }
 
 .tenant-item {
