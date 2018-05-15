@@ -1,62 +1,52 @@
 import { observer, mapStore, setStore } from '../../store/tools'
 
 const select = mapStore('BusinessSelect')
+const house = mapStore('House')
 Page(
   observer({
     data: {
       prices: [
-        { name: '400以下', value: '400-', checked: false },
-        { name: '400 - 600', value: '400-600', checked: false },
-        { name: '600 - 800', value: '600-800', checked: false },
-        { name: '800 - 1000', value: '800-1000', checked: false },
-        { name: '1000以上', value: '1000+', checked: false }
+        { id: 'p-1', label: '400以下', min: 0, max: 400 },
+        { id: 'p-2', label: '400-600', min: 400, max: 600 },
+        { id: 'p-3', label: '600-800', min: 600, max: 800 },
+        { id: 'p-4', label: '800-1000', min: 800, max: 1000 },
+        { id: 'p-5', label: '1000以上', min: 1000, max: 0 }
       ],
-      types: [
-        { name: '酒店', value: 'jd', checked: false },
-        { name: '公寓', value: 'gy', checked: false },
-        { name: '客栈', value: 'kz', checked: false }
-      ],
-      characteristics: [
-        { name: '海景房', value: 'hjf', checked: false },
-        { name: '免押金', value: 'myj', checked: false },
-        { name: '欧式精装修', value: 'osjzx', checked: false }
-      ]
+      types: []
+      // characteristics: [
+      //   { name: '海景房', value: 'hjf', checked: false },
+      //   { name: '免押金', value: 'myj', checked: false },
+      //   { name: '欧式精装修', value: 'osjzx', checked: false }
+      // ]
     },
     props: { select },
     handlePrice(e) {
       const { obj } = e.currentTarget.dataset
-      setStore(select, { price: { name: obj.name, value: obj.value } })
       this.setData({
-        prices: this.data.prices.map(v => ({ ...v, checked: v.value === obj.value }))
+        prices: this.data.prices.map(v => ({ ...v, checked: v.id === obj.id }))
       })
+      delete obj.checked
+      setStore(select, { price: { ...obj } })
     },
     handleClick(e) {
-      const { key, obj } = e.currentTarget.dataset
-      const isIn = select[key].filter(v => v.value === obj.value).length
-      const newState = {}
-      newState[key] = isIn
-        ? select[key].filter(v => v.value !== obj.value)
-        : [...select[key], { name: obj.name, value: obj.value }]
-      setStore(select, newState)
-      // update data
-      const newData = {}
-      newData[key] = this.data[key].map(v => ({
-        ...v,
-        checked: v.value === obj.value ? !v.checked : v.checked
-      }))
-      this.setData(newData)
+      const item = e.currentTarget.dataset.obj
+      this.setData({
+        types: this.data.types.map(obj => ({
+          ...obj,
+          checked: obj.id === item.id ? !obj.checked : obj.checked
+        }))
+      })
+      setStore(select, { types: this.data.types.filter(obj => obj.checked) })
     },
     // lifecycle
-    onLoad() {
+    onShow() {
+      // 初始设置types的状态
+
       this.setData({
-        prices: this.data.prices.map(v => ({ ...v, checked: v.value === select.price.value })),
-        types: this.data.types.map(v => ({
-          ...v,
-          checked: !!select.types.filter(o => o.value === v.value).length
-        })),
-        characteristics: this.data.characteristics.map(v => ({
-          ...v,
-          checked: !!select.characteristics.filter(o => o.value === v.value).length
+        prices: this.data.prices.map(obj => ({ ...obj, checked: select.price.id === obj.id })),
+        types: house.houseTypes.map(obj => ({
+          ...obj,
+          checked: !!select.types.filter(v => v.id === obj.id).length
         }))
       })
     }

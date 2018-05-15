@@ -1,4 +1,8 @@
+import { observer, mapStore, setStore } from '../../store/tools'
+
+const house = mapStore('House')
 Page({
+  props: { house },
   data: {
     hotelId: '',
     toView: 'des',
@@ -100,17 +104,6 @@ Page({
     showId: 'des',
     showTabs: false
   },
-  onLoad(option) {
-    this.setData({
-      hotelId: option.id,
-      query: wx.createSelectorQuery(),
-      windowHeight: wx.getSystemInfoSync().windowHeight,
-      facilities: this.data.facilities.map((v, i) => ({
-        ...v,
-        have: this.data.fetchData.facilities[i]
-      }))
-    })
-  },
   jump(e) {
     const a = e.currentTarget.dataset.anchor
     this.setData({ toView: a })
@@ -120,7 +113,7 @@ Page({
     const showTabs = e.detail.scrollTop > 0.5 * this.data.windowHeight
     this.data.showTabs !== showTabs && this.setData({ showTabs })
     this.data.query
-      .selectAll('#des,#comment,#info')
+      .selectAll('#des,#map,#info')
       .boundingClientRect(function(rects) {})
       .exec(response => {
         const data = response.pop()
@@ -164,6 +157,20 @@ Page({
   submit() {
     wx.navigateTo({
       url: '/pages/order-confirmation/order-confirmation'
+    })
+  },
+
+  // lifecycle
+  onLoad(option) {
+    console.log('house id', house.currHouseId)
+    house.getHouseDetail(house.currHouseId)
+    this.setData({
+      query: wx.createSelectorQuery(),
+      windowHeight: wx.getSystemInfoSync().windowHeight,
+      facilities: this.data.facilities.map((v, i) => ({
+        ...v,
+        have: this.data.fetchData.facilities[i]
+      }))
     })
   }
 })

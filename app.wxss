@@ -14,3 +14,10 @@ page {
   padding: 200rpx 0;
   box-sizing: border-box;
 }
+
+/* 去掉 scroll-view 的滚动条 */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

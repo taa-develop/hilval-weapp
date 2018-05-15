@@ -1,5 +1,5 @@
 Component({
-  properties: {},
+  properties: { defText: { type: String } },
   data: { text: '' },
   methods: {
     onInput(e) {
@@ -8,7 +8,16 @@ Component({
     },
     clear() {
       this.setData({ text: '' })
-      this.triggerEvent('on-input', { value: '' })
+      this.triggerEvent('on-clear', { value: '' })
+    },
+
+    submit(e) {
+      this.triggerEvent('on-submit', { value: e.detail.value })
     }
+  },
+
+  // lifecycle
+  ready() {
+    this.setData({ text: this.properties.defText || '' })
   }
 })

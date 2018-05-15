@@ -3,6 +3,7 @@ import App from './app'
 import User from './user'
 import ApplyForm from './applyForm'
 import BusinessSelect from './businessSelect'
+import House from './house'
 
 class Store {
   constructor() {
@@ -10,7 +11,8 @@ class Store {
       App,
       User,
       ApplyForm,
-      BusinessSelect
+      BusinessSelect,
+      House
     })
   }
 }

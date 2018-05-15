@@ -1,3 +1,7 @@
+.business-page {
+  height: 100vh;
+}
+
 .fixed-box {
   position: relative;
 }

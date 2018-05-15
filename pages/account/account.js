@@ -1,5 +1,6 @@
 import { observer, mapStore } from '../../store/tools'
 import { navTo } from '../../utils/index'
+
 const app = mapStore('App')
 const user = mapStore('User')
 
@@ -11,13 +12,9 @@ Page(
       user
     },
     onLoad: function() {
-      console.log(user)
-      if (user.info) return
+      user.signIn()
     },
-    handleLogin() {
-      console.log('login')
-      user.isLogin = true
-    },
+    handleLogin() {},
 
     goto: e => navTo(e)
   })

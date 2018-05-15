@@ -1,6 +1,6 @@
 <view class="search-box">
   <input class="input-wrap" type="text" confirm-type="search" placeholder="目的地/景点" maxlength="30" value="{{text}}" bindinput="onInput"
-  />
+    bindconfirm="submit" />
   <image class="search-icon" src="../../resource/icons/search.png"></image>
   <view class="clear" bindtap="clear">
     <image class="clear-icon" src="../../resource/icons/close-btn.png"></image>
