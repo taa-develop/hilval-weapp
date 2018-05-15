@@ -1,0 +1,69 @@
+/* padding=10px */
+.home-page {
+  padding-top: 1px;
+}
+
+.form-panel {
+  margin: 10px;
+  padding-bottom: 1px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* address */
+.address-section {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.address-name {
+  flex: 1;
+}
+
+.location-icon {
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
+
+/* date */
+.date-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.date-item {
+  width: 6em;
+  text-align: center;
+}
+
+.date-item > .label {
+  font-size: 14px;
+  color: rgb(178, 178, 178);
+}
+
+/* people */
+.people-section {
+  margin: 0 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #efefef;
+}
+
+.people-section > .tips {
+  font-size: 14px;
+  color: rgb(178, 178, 178);
+}
+
+/* search */
+.search-btn {
+  margin: 10px;
+  background-color: rgb(6, 143, 132);
+  color: #ffffff;
+}

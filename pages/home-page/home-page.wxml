@@ -1,0 +1,38 @@
+<!-- 
+  首页修改版
+ -->
+
+<view class="home-page">
+  <view class="form-panel">
+    <view class="address-section">
+      <view class="address-name">香洲区华润万家</view>
+      <image class="location-icon" src="../../resource/icons/location.png"></image>
+      <text class="location-tips" bind:tap="handleLocation">当前位置</text>
+    </view>
+
+    <view class="date-section">
+      <picker mode="date" start="{{start}}" end="end" value="{{startDate}}" data-datetype="start" bind:change="handleDate">
+        <view class="date-item">
+          <view class="date">{{startDate}}</view>
+          <view class="label">入住</view>
+        </view>
+      </picker>
+      <view class="center-line">/</view>
+      <picker mode="date" start="{{start}}" end="end" value="{{endDate}}" data-datetype="end" bind:change="handleDate">
+        <view class="date-item">
+          <view class="date">{{endDate}}</view>
+          <view class="label">退房</view>
+        </view>
+      </picker>
+    </view>
+
+    <picker range="{{peopleOptions}}" range-key="label" bind:change="handlePeople">
+      <view class="people-section">
+        <view class="people">{{peopleOptions[peopleIndex].label}}</view>
+        <view class="tips">选择适合人数以准确定位房源</view>
+      </view>
+    </picker>
+
+    <button class="search-btn">搜索</button>
+  </view>
+</view>
