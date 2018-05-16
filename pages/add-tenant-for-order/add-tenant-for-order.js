@@ -22,5 +22,7 @@ Page({
   backToOrder() {
     console.log(this.data.tenants)
     wx.navigateBack()
-  }
+  },
+
+  goto: e => navTo(e)
 })

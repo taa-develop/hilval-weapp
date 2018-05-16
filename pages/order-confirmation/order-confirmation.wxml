@@ -1,38 +1,56 @@
 <view class="order-confirmation">
-  <view class="house-name">珠海大酒店</view>
-  <view class="info">100m^2 两室一厅 宜住2-4人</view>
-  <image class="preview" src="../../resource/images/hotel.jpeg"></image>
-  <view class="time-bar">
-    <view class="time">2018-05-10</view>
-    <view class="total-info">共 10 晚</view>
-    <view class="time">2018-05-20</view>
+  <image class="preview" style="display: block;" src="../../resource/images/hotel.jpeg"></image>
+  <view class="section-wrap">
+    <view class="house-name">珠海大酒店</view>
+    <view class="info">100m^2 两室一厅 宜住2-4人</view>
+    <view class="time-bar">
+      <view class="time">2018-05-10 入住</view>
+      <!-- <view class="total-info">共 10 晚</view> -->
+      <view class="time">2018-05-20 退房</view>
+    </view>
   </view>
 
-  <view class="title-bar">
-    <view class="title">入住人信息</view>
-    <image class="add-tenant-btn" src="../../resource/icons/add.png" data-url="add-tenant-for-order" bind:tap="goto"></image>
+  <view class="section-wrap">
+    <view class="title-bar">
+      <view class="title">入住人信息</view>
+      <image class="add-tenant-btn" src="../../resource/icons/add.png" data-url="add-tenant-for-order" bind:tap="goto"></image>
+    </view>
+
+    <view class="tenants-list">
+      <view class="tenant-item">
+        <view class="name">张三</view>
+        <view class="phone">188-9990-8877</view>
+        <image class="del-btn" src="../../resource/icons/delete.png"></image>
+      </view>
+      <view class="tenant-item">
+        <view class="name">张三</view>
+        <view class="phone">188-9990-8877</view>
+        <image class="del-btn" src="../../resource/icons/delete.png"></image>
+      </view>
+      <view class="tenant-item">
+        <view class="name">张三</view>
+        <view class="phone">188-9990-8877</view>
+        <image class="del-btn" src="../../resource/icons/delete.png"></image>
+      </view>
+    </view>
   </view>
 
-  <view class="tenants-list">
-    <view class="tenant-item">
-      <view class="name">张三</view>
-      <view class="phone">188-9990-8877</view>
-      <image class="del-btn" src="../../resource/icons/delete.png"></image>
+  <view class="section-wrap">
+    <view class="price-line">
+      <view class="title">住房金额:</view>
+      <view class="price-number">￥999</view>
     </view>
-    <view class="tenant-item">
-      <view class="name">张三</view>
-      <view class="phone">188-9990-8877</view>
-      <image class="del-btn" src="../../resource/icons/delete.png"></image>
-    </view>
-    <view class="tenant-item">
-      <view class="name">张三</view>
-      <view class="phone">188-9990-8877</view>
-      <image class="del-btn" src="../../resource/icons/delete.png"></image>
+    <view class="price-line">
+      <view class="title">押金金额:</view>
+      <view class="price-number">￥999</view>
     </view>
   </view>
 
   <view class="pay-bar">
-    <view class="price">￥ 333.00</view>
-    <view class="submit" bind:tap="submit">确认订单</view>
+    <view class="clear"></view>
+    <div class="content-fixed">
+      <view class="price">￥333.00</view>
+      <view class="submit" bind:tap="submit">确认订单</view>
+    </div>
   </view>
 </view>

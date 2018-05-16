@@ -6,15 +6,9 @@
 }
 
 .add-tenant {
-  width: 5em;
-  margin: 10px;
-  padding: 4px 10px;
-  color: rgba(68, 143, 132, 1);
+  margin: 20px 0;
   text-align: center;
-  font-size: 16px;
-  line-height: 20px;
-  border-radius: 14px;
-  border: 1px solid rgba(68, 143, 132, 1);
+  color: rgb(68, 143, 132);
 }
 
 .tenant-item {
@@ -30,7 +24,7 @@
   margin-right: 0.5em;
 }
 
-.tenant-item > .phone {
+.tenant-item > .number {
   flex: 1;
 }
 
@@ -39,7 +33,11 @@
   border-radius: 5px;
   background-color: rgba(68, 143, 132, 1);
   color: #ffffff;
-  /* background-color: rgba(68, 143, 132, 0.2);
-  color: rgb(68, 143, 132); */
   font-size: 12px;
+}
+
+.tenant-item > .delete-btn {
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
 }

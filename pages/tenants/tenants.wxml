@@ -2,14 +2,14 @@
   用户保存的出行人列表,用于订房时选择
  -->
 <view class="tenants">
-  <view class="add-tenant" data-url="add-tenant" bind:tap="goto">添加出行人
-  </view>
-
   <view class="tenant-list">
-    <view wx:for="{{props.user.userTravelers}}" wx:key="{{index}}" class="tenant-item" data-id="{{item.id}}" bind:tap="handleEdit">
-      <text class="name">{{item.name}}</text>
-      <text class="phone">{{item.mobile}}</text>
+    <view wx:for="{{props.user.userTravelers}}" wx:key="{{index}}" class="tenant-item">
+      <text class="name" bind:tap="handleEdit" data-id="{{item.id}}">{{item.name}}</text>
+      <text class="number" bind:tap="handleEdit" data-id="{{item.id}}">{{item.mobile}}</text>
       <text class="check-status">{{['审核中','通过','无效'][item.status]}}</text>
+      <image class="delete-btn" src="../../resource/icons/delete.png" bind:tap="handleDelete" data-id="{{item.id}}"></image>
     </view>
   </view>
+
+  <view class="add-tenant" data-url="add-tenant" bind:tap="goto">+ 添加出行人</view>
 </view>

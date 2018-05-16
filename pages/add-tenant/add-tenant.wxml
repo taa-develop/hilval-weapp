@@ -34,7 +34,13 @@
     />
   </view>
 
-  <view class="ctrl-wrap">
+  <!-- <view class="ctrl-wrap">
     <view class="ctrl-btn green" bind:tap="submit">添加出行人</view>
+  </view> -->
+
+  <view class="submit-bar">
+    <view class="fixed-clear"></view>
+    <view class="submit" bind:tap="submit">添加</view>
   </view>
+
 </view>

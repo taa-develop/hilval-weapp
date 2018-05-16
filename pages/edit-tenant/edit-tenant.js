@@ -47,18 +47,18 @@ Page({
     }
   },
 
-  handleDelete() {
-    wx.showModal({
-      title: '提示',
-      content: '是否确定删除该记录?',
-      success: res => {
-        if (res.confirm) {
-          apiDeleteTraveler(this.data.id)
-          wx.navigateBack()
-        }
-      }
-    })
-  },
+  // handleDelete() {
+  //   wx.showModal({
+  //     title: '提示',
+  //     content: '是否确定删除该记录?',
+  //     success: res => {
+  //       if (res.confirm) {
+  //         apiDeleteTraveler(this.data.id)
+  //         wx.navigateBack()
+  //       }
+  //     }
+  //   })
+  // },
 
   // lifeCycle
   onLoad(opt) {

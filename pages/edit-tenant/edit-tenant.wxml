@@ -34,9 +34,13 @@
     />
   </view>
 
-  <view class="ctrl-wrap">
+  <!-- <view class="ctrl-wrap">
     <view class="ctrl-btn red" bind:tap="handleDelete">删除出行人</view>
     <view class="ctrl-btn green" bind:tap="handleSubmit">修改出行人</view>
+  </view> -->
+  <view class="submit-bar">
+    <view class="fixed-clear"></view>
+    <view class="submit" bind:tap="handleSubmit">修改</view>
   </view>
 
   <modal hidden="false" title="这里是title" confirm-text="自定义确定按钮" cancel-text="自定义取消按钮" bindcancel="cancel" bindconfirm="confirm">

@@ -3,9 +3,6 @@
  -->
 
 <view class="add-tenant-for-order">
-  <view class="goto-admin-tenant">管理出行人</view>
-  <view class="submit" bind:tap="backToOrder">确定</view>
-
   <view class="tenants-list">
     <view class="tenant" wx:for="{{tenants}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="handleClick">
       <text class="name">{{item.name}}</text>
@@ -13,5 +10,12 @@
       <image class="check-icon {{item.checked?'hidden':''}}" src="../../resource/icons/check.png"></image>
       <image class="check-icon {{item.checked?'':'hidden'}}" src="../../resource/icons/check-active.png"></image>
     </view>
+  </view>
+
+  <view class="goto-admin-tenant" data-url="tenants" bind:tap="goto">+ 管理出行人</view>
+
+  <view class="submit-bar">
+    <view class="fixed-clear"></view>
+    <view class="submit" bind:tap="backToOrder">确定</view>
   </view>
 </view>

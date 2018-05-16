@@ -24,7 +24,7 @@
   /* border: 1px solid #efefef; */
 }
 
-.ctrl-wrap {
+/* .ctrl-wrap {
   margin-top: 30px;
 }
 .ctrl-btn {
@@ -37,4 +37,21 @@
 }
 .green {
   color: rgb(68, 143, 132);
+} */
+
+/* bottom btn */
+.submit-bar > .fixed-clear {
+  height: 50px;
+}
+
+.submit-bar > .submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  background-color: rgb(68, 143, 132);
+  font-size: 20px;
+  line-height: 2.5;
+  color: #ffffff;
 }
