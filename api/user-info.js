@@ -1,4 +1,4 @@
-import { query } from '../utils/http'
+import { query, mutation } from '../utils/http'
 import { mapStore } from '../store/tools'
 import { baesUrl } from '../utils/http'
 
@@ -36,4 +36,24 @@ function apiGetUserInfo() {
   })
 }
 
-export { apiGetUserInfo }
+// 出行人管理
+function apiAddUserTraveler(data) {
+  const str = `
+    ($input:UserTravelerInput!){
+    addUserTraveler(input: $input){
+      id
+      createTime
+      updateTime
+      name
+      countryCode
+      mobile
+      identityType
+      identityNumber
+      email
+      status
+    }
+  }`
+  const token = mapStore('App').token
+  return mutation(token, str, { input: data })
+}
+export { apiGetUserInfo, apiAddUserTraveler }

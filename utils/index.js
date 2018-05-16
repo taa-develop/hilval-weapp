@@ -11,4 +11,14 @@ function navTo(event) {
   })
 }
 
-export { navTo }
+// date format
+function dateFormat(timestamp) {
+  const date = new Date(timestamp)
+  const y = date.getFullYear()
+  const m = date.getMonth() + 1
+  const d = date.getDate()
+  const zero = num => (num > 9 ? num : `0${num}`)
+  return `${y}-${zero(m)}-${zero(d)}`
+}
+
+export { navTo, dateFormat }

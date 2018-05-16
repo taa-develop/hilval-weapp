@@ -11,16 +11,16 @@
     </view>
 
     <view class="date-section">
-      <picker mode="date" start="{{start}}" end="end" value="{{startDate}}" data-datetype="start" bind:change="handleDate">
+      <picker mode="date" start="{{start}}" end="end" value="{{props.form.startDateText}}" data-datetype="start" bind:change="handleDate">
         <view class="date-item">
-          <view class="date">{{startDate}}</view>
+          <view class="date">{{props.form.startDateText}}</view>
           <view class="label">入住</view>
         </view>
       </picker>
       <view class="center-line">/</view>
-      <picker mode="date" start="{{start}}" end="end" value="{{endDate}}" data-datetype="end" bind:change="handleDate">
+      <picker mode="date" start="{{start}}" end="end" value="{{props.form.endDateText}}" data-datetype="end" bind:change="handleDate">
         <view class="date-item">
-          <view class="date">{{endDate}}</view>
+          <view class="date">{{props.form.endDateText}}</view>
           <view class="label">退房</view>
         </view>
       </picker>
@@ -28,11 +28,11 @@
 
     <picker range="{{peopleOptions}}" range-key="label" bind:change="handlePeople">
       <view class="people-section">
-        <view class="people">{{peopleOptions[peopleIndex].label}}</view>
+        <view class="people">{{peopleOptions[props.form.peopleIndex].label}}</view>
         <view class="tips">选择适合人数以准确定位房源</view>
       </view>
     </picker>
 
-    <button class="search-btn">搜索</button>
+    <button class="search-btn" bind:tap="handleSubmit">搜索</button>
   </view>
 </view>

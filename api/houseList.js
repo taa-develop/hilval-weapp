@@ -37,6 +37,7 @@ function apiGetHouseDetail(id = 1) {
         feature
         houseNumber
         area
+        fitPeopleQuantity
         lon
         lat
         intoTime
@@ -47,6 +48,11 @@ function apiGetHouseDetail(id = 1) {
         leastOrderDates
         intoBeforTime
         cancelOrderCost
+        deposit
+        price
+        installations{
+          name
+        }
       }
     }
   `

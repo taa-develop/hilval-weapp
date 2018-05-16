@@ -1,4 +1,5 @@
 import { observable } from './tools'
+import { dateFormat } from '../utils/index'
 
 class applyForm {
   constructor() {
@@ -8,17 +9,16 @@ class applyForm {
     const d = time.getDate()
     observable(this, {
       place: '',
-      // location: { name: '未获取定位' },
-      checkIn: new Date(y, m, d).getTime(),
-      checkOut: new Date(y, m, d + 1).getTime(),
-      people: { text: '1人', val: 1 },
-      get checkInText() {
-        const t = new Date(this.checkIn)
-        return `${t.getMonth() + 1}月 ${t.getDate()}日`
+      startDate: new Date(y, m, d).getTime(),
+      endDate: new Date(y, m, d + 1).getTime(),
+      peopleIndex: 0,
+      get startDateText() {
+        const t = new Date(this.startDate)
+        return dateFormat(t)
       },
-      get checkOutText() {
-        const t = new Date(this.checkOut)
-        return `${t.getMonth() + 1}月 ${t.getDate()}日`
+      get endDateText() {
+        const t = new Date(this.endDate)
+        return dateFormat(t)
       }
     })
   }

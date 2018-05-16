@@ -55,7 +55,7 @@ class House {
 
   getHouseDetail(houseId) {
     apiGetHouseDetail(houseId).then(res => {
-      console.log('house detail', res)
+      this.currHouseDetail = { ...res.data.data.homestayDetail }
     })
   }
 }

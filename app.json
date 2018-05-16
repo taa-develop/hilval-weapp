@@ -32,7 +32,7 @@
     "selectedColor": "#449284",
     "list": [
       {
-        "pagePath": "pages/home/home",
+        "pagePath": "pages/home-page/home-page",
         "iconPath": "resource/icons/home.png",
         "selectedIconPath": "resource/icons/home-active.png",
         "text": "首页"
