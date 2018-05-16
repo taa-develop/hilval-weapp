@@ -1,12 +1,13 @@
 import { observable, mapStore, setStore } from './tools'
-import { apiGetUserInfo } from '../api/user-info'
+import { apiGetUserInfo, apiGetUserTraveler } from '../api/user-info'
 
 class User {
   constructor() {
     observable(this, {
       encryptedData: null,
       iv: null,
-      info: {}
+      info: {},
+      userTravelers: []
     })
   }
 
@@ -18,6 +19,13 @@ class User {
       if (!mapStore('App').isLogin) {
         setStore(mapStore('App'), { isLogin: true })
       }
+    })
+  }
+
+  getTraveler() {
+    apiGetUserTraveler().then(res => {
+      console.log('travelers', res)
+      this.userTravelers = res.data.data.userTravelers
     })
   }
 }

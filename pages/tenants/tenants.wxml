@@ -6,20 +6,10 @@
   </view>
 
   <view class="tenant-list">
-    <view class="tenant-item" data-url="edit-tenant?bb=aa" bind:tap="goto">
-      <text class="name">张三</text>
-      <text class="phone">188-3655-8898</text>
-      <text class="check-status">审核通过</text>
-    </view>
-    <view class="tenant-item" data-url="edit-tenant?bb=aa" bind:tap="goto">
-      <text class="name">张三</text>
-      <text class="phone">188-3655-8898</text>
-      <text class="check-status">审核通过</text>
-    </view>
-    <view class="tenant-item" data-url="edit-tenant?bb=aa" bind:tap="goto">
-      <text class="name">张三</text>
-      <text class="phone">188-3655-8898</text>
-      <text class="check-status">审核通过</text>
+    <view wx:for="{{props.user.userTravelers}}" wx:key="{{index}}" class="tenant-item" data-id="{{item.id}}" bind:tap="handleEdit">
+      <text class="name">{{item.name}}</text>
+      <text class="phone">{{item.mobile}}</text>
+      <text class="check-status">{{['审核中','通过','无效'][item.status]}}</text>
     </view>
   </view>
 </view>

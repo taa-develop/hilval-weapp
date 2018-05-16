@@ -56,4 +56,71 @@ function apiAddUserTraveler(data) {
   const token = mapStore('App').token
   return mutation(token, str, { input: data })
 }
-export { apiGetUserInfo, apiAddUserTraveler }
+
+function apiGetUserTraveler() {
+  const str = `
+  {
+    userTravelers{
+      id
+      createTime
+      updateTime
+      name
+      countryCode
+      mobile
+      identityType
+      identityNumber
+      email
+      status
+    }
+  }
+  `
+  const token = mapStore('App').token
+  return query(token, str)
+}
+
+function apiGetTravelerDetail(id) {
+  const str = `
+    ($id:Long!){
+    userTravelerInfo(id:$id){
+      id
+      createTime
+      updateTime
+      name
+      countryCode
+      mobile
+      identityType
+      identityNumber
+      email
+      status
+    }
+  }`
+  const token = mapStore('App').token
+  return query(token, str, { id })
+}
+
+function apiEditTraveler(data) {
+  const str = `
+    ($input:UserTravelerInput!){
+    updateUserTraveler(input:$input)
+  }`
+  const token = mapStore('App').token
+  return mutation(token, str, { input: data })
+}
+
+function apiDeleteTraveler(id) {
+  const str = `
+  ($id:Long!){
+    deleteUserTraveler(id:$id)
+  }`
+  const token = mapStore('App').token
+  return mutation(token, str, { id })
+}
+
+export {
+  apiGetUserInfo,
+  apiAddUserTraveler,
+  apiGetUserTraveler,
+  apiGetTravelerDetail,
+  apiEditTraveler,
+  apiDeleteTraveler
+}
