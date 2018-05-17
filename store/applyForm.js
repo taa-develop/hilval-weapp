@@ -12,6 +12,7 @@ class applyForm {
       startDate: new Date(y, m, d).getTime(),
       endDate: new Date(y, m, d + 1).getTime(),
       peopleIndex: 0,
+      travelers: [],
       get startDateText() {
         const t = new Date(this.startDate)
         return dateFormat(t)
@@ -19,6 +20,9 @@ class applyForm {
       get endDateText() {
         const t = new Date(this.endDate)
         return dateFormat(t)
+      },
+      get days() {
+        return (this.endDate - this.startDate) / (1000 * 60 * 60 * 24)
       }
     })
   }

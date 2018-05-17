@@ -1,11 +1,20 @@
 import { navTo } from '../../utils/index'
+import { observer, mapStore, setStore } from '../../store/tools'
 
-Page({
-  data: {},
+const house = mapStore('House')
+const form = mapStore('ApplyForm')
 
-  goto: e => navTo(e),
+Page(
+  observer({
+    props: { house, form },
 
-  submit() {
-    console.log(this.data)
-  }
-})
+    goto: e => navTo(e),
+
+    handleRemove(e) {
+      const id = e.currentTarget.dataset.id
+      setStore(form, { travelers: form.travelers.filter(v => v.id !== id) })
+    },
+
+    submit() {}
+  })
+)

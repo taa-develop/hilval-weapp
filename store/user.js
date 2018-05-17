@@ -23,9 +23,11 @@ class User {
   }
 
   getTraveler() {
-    apiGetUserTraveler().then(res => {
-      console.log('travelers', res)
-      this.userTravelers = res.data.data.userTravelers
+    return new Promise((resolve, reject) => {
+      apiGetUserTraveler().then(res => {
+        this.userTravelers = res.data.data.userTravelers
+        resolve(res.data.data.userTravelers)
+      })
     })
   }
 }

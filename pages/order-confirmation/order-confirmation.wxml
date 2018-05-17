@@ -1,12 +1,12 @@
 <view class="order-confirmation">
-  <image class="preview" style="display: block;" src="../../resource/images/hotel.jpeg"></image>
+  <image class="preview" style="display: block;" src="{{props.house.currHouseDetail.picture}}"></image>
   <view class="section-wrap">
-    <view class="house-name">珠海大酒店</view>
-    <view class="info">100m^2 两室一厅 宜住2-4人</view>
+    <view class="house-name">{{props.house.currHouseDetail.name}}</view>
+    <view class="info">{{props.house.currHouseDetail.area}}m^2 宜住{{props.house.currHouseDetail.fitPeopleQuantity}}人</view>
     <view class="time-bar">
-      <view class="time">2018-05-10 入住</view>
-      <!-- <view class="total-info">共 10 晚</view> -->
-      <view class="time">2018-05-20 退房</view>
+      <view class="time">{{props.form.startDateText}} 入住</view>
+      <view class="total-info">共 {{props.form.days}} 晚</view>
+      <view class="time">{{props.form.endDateText}} 退房</view>
     </view>
   </view>
 
@@ -17,20 +17,10 @@
     </view>
 
     <view class="tenants-list">
-      <view class="tenant-item">
-        <view class="name">张三</view>
-        <view class="phone">188-9990-8877</view>
-        <image class="del-btn" src="../../resource/icons/delete.png"></image>
-      </view>
-      <view class="tenant-item">
-        <view class="name">张三</view>
-        <view class="phone">188-9990-8877</view>
-        <image class="del-btn" src="../../resource/icons/delete.png"></image>
-      </view>
-      <view class="tenant-item">
-        <view class="name">张三</view>
-        <view class="phone">188-9990-8877</view>
-        <image class="del-btn" src="../../resource/icons/delete.png"></image>
+      <view class="tenant-item" wx:for="{{props.form.travelers}}" wx:key="{{item.id}}">
+        <view class="name">{{item.name}}</view>
+        <view class="phone">{{item.identityNumber}}</view>
+        <image class="del-btn" src="../../resource/icons/delete.png" data-id="{{item.id}}" bind:tap="handleRemove"></image>
       </view>
     </view>
   </view>
@@ -38,19 +28,19 @@
   <view class="section-wrap">
     <view class="price-line">
       <view class="title">住房金额:</view>
-      <view class="price-number">￥999</view>
+      <view class="price-number">￥{{props.house.currHouseDetail.price}}</view>
     </view>
     <view class="price-line">
       <view class="title">押金金额:</view>
-      <view class="price-number">￥999</view>
+      <view class="price-number">￥{{props.house.currHouseDetail.deposit}}</view>
     </view>
   </view>
 
   <view class="pay-bar">
     <view class="clear"></view>
-    <div class="content-fixed">
+    <view class="content-fixed">
       <view class="price">￥333.00</view>
       <view class="submit" bind:tap="submit">确认订单</view>
-    </div>
+    </view>
   </view>
 </view>

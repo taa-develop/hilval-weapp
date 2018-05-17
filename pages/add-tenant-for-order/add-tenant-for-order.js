@@ -1,22 +1,24 @@
 import { navTo } from '../../utils/index'
+import { mapStore, setStore } from '../../store/tools'
+
+const user = mapStore('User')
+const form = mapStore('ApplyForm')
 
 Page({
   data: {
-    tenants: [
-      { id: '12', name: '张三', checked: false },
-      { id: '23', name: '李四', checked: false }
-    ]
+    tenants: []
   },
 
   handleClick(e) {
     const { id } = e.currentTarget.dataset
-    console.log(id)
     this.setData({
       tenants: this.data.tenants.map(obj => ({
         ...obj,
         checked: obj.id === id ? !obj.checked : obj.checked
       }))
     })
+    // 选择后,更新到store
+    setStore(form, { travelers: this.data.tenants.filter(v => v.checked) })
   },
 
   backToOrder() {
@@ -24,5 +26,19 @@ Page({
     wx.navigateBack()
   },
 
-  goto: e => navTo(e)
+  goto: e => navTo(e),
+
+  // lifecycle
+  onShow() {
+    // 初始创建选项列表
+    user.getTraveler().then(res => {
+      this.setData({
+        tenants: res.map(obj => ({
+          ...obj,
+          checked: !!form.travelers.filter(v => v.id === obj.id).length
+        }))
+      })
+      console.log('check travelers', this.data.tenants)
+    })
+  }
 })
