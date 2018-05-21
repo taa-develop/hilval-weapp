@@ -67,3 +67,23 @@
   background-color: rgb(6, 143, 132);
   color: #ffffff;
 }
+
+/* box */
+
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(219, 100, 100);
+  transform-style: preserve-3d;
+  animation: box 10s infinite;
+}
+
+@keyframes box {
+  0%,
+  100% {
+    transform: perspective(300px) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(300px) rotateY(180deg);
+  }
+}

@@ -4,8 +4,11 @@ import { apiGetHouseList, apiGetHouseDetail, apiGetHouseTypes } from '../api/hou
 function getParams() {
   // 从其他相关的store中获取请求参数
   const select = mapStore('BusinessSelect')
+  const form = mapStore('ApplyForm')
   const params = {}
   params.keyword = select.keyword
+  params.intoDay = form.startDateText
+  params.queitDay = form.endDateText
   params.dictHouseTypeCodes = [...select.types.map(v => v.code)]
   params.minPrice = select.price.min
   params.maxPrice = select.price.max

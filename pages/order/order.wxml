@@ -1,17 +1,104 @@
-<!-- <import src="./unpaid.wxml" />
-<import src="./unstarted.wxml" />
-<import src="./history.wxml" /> -->
-
 <view class="order-page">
   <view class="top-tabs">
-    <view wx:for="{{tabs}}" wx:key="{{index}}" class="tab {{tempName===item.tempName?'active':''}}" data-temp="{{item.tempName}}"
-      bind:tap="tabClick">{{item.name}}</view>
+    <view wx:for="{{tabs}}" wx:key="{{index}}" class="tab {{index===tabIndex?'active':''}}" data-index="{{index}}" bind:tap="handleTab">{{item.label}}</view>
   </view>
 
   <view class="contents">
-    <view class="order-list">
-      <order-item wx:for="{{usingData}}" wx:key="{{index}}" order="{{item}}"></order-item>
-    </view>
+    <!-- 未支付订单 -->
+    <scroll-view scroll-y scroll-with-animation class="order-list {{tabIndex!==0?'hidden':''}}" bindscrolltoupper="handleRefresh"
+      bindscrolltolower="handleLoadMore">
+      <view class="order-item" wx:for="{{props.order.ordersUnpaid.datas}}" wx:key="item.orderNumber">
+        <view class="top-bar">
+          <image class="logo" src="{{order.logo}}"></image>
+          <view class="content">
+            <view class="name">{{item.homestay.name}}</view>
+            <view class="info">{{item.homestay.area}}</view>
+          </view>
+          <view class="price">￥{{item.totalAmount}}</view>
+        </view>
+
+        <view class="date-bar">
+          <view class="date">
+            <view class="day">{{item.startDateText}}</view>
+            <view class="tips">入住</view>
+          </view>
+          <view class="total-days">共 {{item.days}} 晚</view>
+          <view class="date">
+            <view class="day">{{item.endDateText}}</view>
+            <view class="tips">退房</view>
+          </view>
+        </view>
+
+        <view class="bottom-bar">
+          <text class="btn">取消</text>
+          <text class="btn" data-id="{{item.orderNumber}}" bind:tap="handlePayNow">马上支付</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 支付,但未入住订单 -->
+    <scroll-view scroll-y scroll-with-animation class="order-list {{tabIndex!==1?'hidden':''}}" bindscrolltoupper="handleRefresh"
+      bindscrolltolower="handleLoadMore">
+      <view class="order-item" wx:for="{{props.order.ordersUnstarted.datas}}" wx:key="item.orderNumber">
+        <view class="top-bar">
+          <image class="logo" src="{{order.logo}}"></image>
+          <view class="content">
+            <view class="name">{{item.homestay.name}}</view>
+            <view class="info">{{item.homestay.area}}</view>
+          </view>
+          <view class="price">￥{{item.totalAmount}}</view>
+        </view>
+
+        <view class="date-bar">
+          <view class="date">
+            <view class="day">{{item.startDateText}}</view>
+            <view class="tips">入住</view>
+          </view>
+          <view class="total-days">共 {{item.days}} 晚</view>
+          <view class="date">
+            <view class="day">{{item.endDateText}}</view>
+            <view class="tips">退房</view>
+          </view>
+        </view>
+
+        <view class="bottom-bar">
+          <text class="btn">二维码</text>
+          <!-- <text class="btn"></text> -->
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 历史订单 -->
+    <scroll-view scroll-y scroll-with-animation class="order-list {{tabIndex!==2?'hidden':''}}" bindscrolltoupper="handleRefresh"
+      bindscrolltolower="handleLoadMore">
+      <view class="order-item" wx:for="{{props.order.ordersHistory.datas}}" wx:key="item.orderNumber">
+        <view class="top-bar">
+          <image class="logo" src="{{order.logo}}"></image>
+          <view class="content">
+            <view class="name">{{item.homestay.name}}</view>
+            <view class="info">{{item.homestay.area}}</view>
+          </view>
+          <view class="price">￥{{item.totalAmount}}</view>
+        </view>
+
+        <view class="date-bar">
+          <view class="date">
+            <view class="day">{{item.startDateText}}</view>
+            <view class="tips">入住</view>
+          </view>
+          <view class="total-days">共 {{item.days}} 晚</view>
+          <view class="date">
+            <view class="day">{{item.endDateText}}</view>
+            <view class="tips">退房</view>
+          </view>
+        </view>
+
+        <view class="bottom-bar">
+          <text class="btn">评论</text>
+          <!-- <text class="btn">已入住</text> -->
+        </view>
+      </view>
+    </scroll-view>
   </view>
 
   <login-cover-layer isLogin="{{props.app.isLogin}}"></login-cover-layer>

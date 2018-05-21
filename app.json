@@ -13,6 +13,8 @@
     "pages/add-tenant-for-order/add-tenant-for-order",
 
     "pages/order/order",
+    "pages/order-unpaid/order-unpaid",
+    "pages/order-unstarted/order-unstarted",
 
     "pages/account/account",
     "pages/tenants/tenants",
