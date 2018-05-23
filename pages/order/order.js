@@ -16,7 +16,14 @@ Page(
     },
 
     handleTab(e) {
-      this.setData({ tabIndex: e.currentTarget.dataset.index })
+      if(!app.isLogin){
+        wx.showToast({title:'请先登陆！',icon:'none'})
+        return
+      }
+
+      const tabIndex=e.currentTarget.dataset.index
+      this.setData({ tabIndex })
+      order.getOrders(tabIndex+1)
     },
 
     handleRefresh() {
@@ -28,12 +35,20 @@ Page(
     },
 
     handlePayNow(e) {
+      // 这里是在订单列表里面申请的支付
       const orderId = e.currentTarget.dataset.id
-      order.setPayingOrder(orderId)
+      wx.navigateTo({
+        url: `/pages/order-detail/order-detail?id=${orderId}&type=unpaid`
+      })
     },
 
     // lifeCycle
-    onLoad() {
+    onShow(){
+      console.log('order page show')
+      if(!app.isLogin){
+        wx.showToast({title:'请先登陆！',icon:'none'})
+        return
+      }
       order.getOrders(1)
       order.getOrders(2)
       order.getOrders(3)

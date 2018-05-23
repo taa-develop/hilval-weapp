@@ -101,5 +101,5 @@
     </scroll-view>
   </view>
 
-  <login-cover-layer isLogin="{{props.app.isLogin}}"></login-cover-layer>
+  <login-cover-layer firstIn="{{props.app.firstIn}}"></login-cover-layer>
 </view>

@@ -1,5 +1,0 @@
-<template name="history">
-  <view class="order-list">
-    <order-item></order-item>
-  </view>
-</template>

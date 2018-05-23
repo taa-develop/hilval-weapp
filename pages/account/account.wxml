@@ -7,7 +7,7 @@
 
       <!-- 登陆前的按钮 -->
       <view class="login-bar">
-        <button class="login-btn" wx:if="{{!props.app.isLogin}}" open-type="getUserInfo" bind:tap="handleLogin">登陆/注册</button>
+        <button class="login-btn" wx:if="{{!props.app.isLogin}}" open-type="getUserInfo" bind:getuserinfo="getUserInfo">授权登陆</button>
       </view>
 
       <!-- 登陆后的信息 -->
@@ -66,5 +66,5 @@
     </view>
   </view>
 
-  <login-cover-layer isLogin="{{props.app.isLogin}}"></login-cover-layer>
+  <login-cover-layer firstIn="{{props.app.firstIn}}"></login-cover-layer>
 </view>

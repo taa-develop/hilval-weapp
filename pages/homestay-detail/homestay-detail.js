@@ -1,6 +1,8 @@
 import { observer, mapStore, setStore } from '../../store/tools'
 
 const house = mapStore('House')
+const app=mapStore('App')
+
 Page(
   observer({
     props: { house },
@@ -63,11 +65,25 @@ Page(
     },
 
     submit() {
+      // 判断是否登陆
+      if(!app.isLogin){
+        wx.showToast({title:'请先登陆！',icon:'none'})
+        return
+      }
       // 先预定当前订单,后续确认
-      mapStore('Order').createOrder()
-      wx.navigateTo({
-        url: '/pages/order-confirmation/order-confirmation'
-      })
+      mapStore('Order')
+        .createOrder()
+        .then(() => {
+          wx.navigateTo({
+            url: '/pages/order-confirmation/order-confirmation'
+          })
+        })
+        .catch(msg => {
+          wx.showToast({
+            title: msg,
+            icon: 'none'
+          })
+        })
     },
 
     // lifecycle

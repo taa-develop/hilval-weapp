@@ -19,6 +19,10 @@ class User {
       if (!mapStore('App').isLogin) {
         setStore(mapStore('App'), { isLogin: true })
       }
+      // get travelers
+      apiGetUserTraveler().then(res => {
+        this.userTravelers = res.data.data.userTravelers
+      })
     })
   }
 
@@ -31,4 +35,5 @@ class User {
     })
   }
 }
+
 export default new User()

@@ -5,6 +5,7 @@ class App {
   constructor() {
     observable(this, {
       isLogin: false,
+      firstIn:true,
       token: {}
     })
   }

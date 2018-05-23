@@ -4,5 +4,5 @@
  -->
 
 <view class="login-cover-layer">
-  <button class="cover-btn {{isLogin?'hidden':''}}" open-type="getUserInfo" bind:getuserinfo="getUserInfo">{{isLogin}}</button>
+  <button class="cover-btn {{firstIn?'':'hidden'}}" open-type="getUserInfo" bind:getuserinfo="getUserInfo">{{firstIn}}</button>
 </view>

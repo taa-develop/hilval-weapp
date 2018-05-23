@@ -47,10 +47,19 @@ class Order {
     const intoDay = mapStore('ApplyForm').startDateText
     const queitDay = mapStore('ApplyForm').endDateText
     console.log({ homestayId, orderAmount, intoDay, queitDay })
-    apiCreateOrder({ homestayId, orderAmount, intoDay, queitDay }).then(res => {
-      // 创建订单之后，将此订单设置为当前需要支付的订单
-      console.log(res)
-      this.currPayingOrder = { ...res.data.data.createOrder }
+    return new Promise((resolve, reject) => {
+      apiCreateOrder({ homestayId, orderAmount, intoDay, queitDay }).then(res => {
+        // 创建订单之后，将此订单设置为当前需要支付的订单
+        console.log(res)
+        if (res.data.data.createOrder) {
+          console.log('order had handing', { ...res.data.data.createOrder })
+          this.currPayingOrder = { ...res.data.data.createOrder }
+          resolve()
+        } else {
+          let msg = res.data.errors[0].message || '系统错误'
+          reject(msg)
+        }
+      })
     })
   }
 
@@ -78,18 +87,20 @@ class Order {
     }
   }
 
-  setPayingOrder(orderId) {
-    apiGetOrderDetail(orderId).then(res => {
-      this.currPayingOrder = { ...res.data.data.createOrder }
+  payOrderNow(params) {
+    return new Promise((resolve, reject) => {
+      apiPayOrder(params).then(res => {
+        if (res.data.payOrder) {
+          resolve()
+        } else {
+          reject(res.errors[0].message)
+        }
+      })
     })
   }
 
-  payOrder() {
-    // 先获取订单详情，再请求支付
-    console.log('paying,number is  ', this.currPayingOrder)
-    apiGetOrderDetail(this.currPayingOrder.orderNumber).then(res => {
-      console.log('order detail', res)
-    })
+  payOrderFromList(orderNumber) {
+    // 在未支付订单列表里点击‘马上支付’
   }
 }
 

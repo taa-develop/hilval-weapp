@@ -1,16 +1,15 @@
 <!-- 
-  当前页面为下单后，立即支付的页面，与从订单列表支付的功能分开
+  从订单列表进入的订单详情页
  -->
 
-<view class="order-confirmation">
-  <image class="preview" style="display: block;" src="{{props.order.currPayingOrder.picture}}"></image>
+<view class="order-detail">
+  <image class="preview" style="display: block;" src="{{orderDetail.homestay.picture}}"></image>
   <view class="section-wrap">
     <view class="house-name">{{props.order.currPayingOrder.name}}</view>
-    <view class="info">{{props.order.currPayingOrder.area}}m^2 宜住{{props.order.currPayingOrder.fitPeopleQuantity}}人</view>
     <view class="time-bar">
-      <view class="time">{{props.form.startDateText}} 入住</view>
-      <view class="total-info">共 {{props.form.days}} 晚</view>
-      <view class="time">{{props.form.endDateText}} 退房</view>
+      <view class="time">{{orderDetail.intoDate}} 入住</view>
+      <view class="total-info">共 {{orderDetail.days}} 晚</view>
+      <view class="time">{{orderDetail.queitDate}} 退房</view>
     </view>
   </view>
 
@@ -31,18 +30,18 @@
   <view class="fking-wrap">
     <view class="price-line">
       <view class="title">住房金额:</view>
-      <view class="price-number">￥{{props.order.currPayingOrder.homestay.price}}/天</view>
+      <view class="price-number">￥{{orderDetail.homestay.price}}/天</view>
     </view>
     <view class="price-line">
       <view class="title">押金金额:</view>
-      <view class="price-number">￥{{props.order.currPayingOrder.homestay.deposit}}</view>
+      <view class="price-number">￥{{orderDetail.homestay.deposit}}</view>
     </view>
   </view>
 
   <view class="pay-bar">
     <view class="clear"></view>
     <view class="content-fixed">
-      <view class="price">￥{{props.order.currPayingOrder.totalAmount}}</view>
+      <view class="price">￥{{orderDetail.totalAmount}}</view>
       <view class="submit" bind:tap="submit">确认并支付</view>
     </view>
   </view>

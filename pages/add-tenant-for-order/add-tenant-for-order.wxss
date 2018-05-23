@@ -1,5 +1,6 @@
 .add-tenant-for-order {
   min-height: 100vh;
+  padding-top: 1px;
   background-color: #fff;
 }
 .tenant {

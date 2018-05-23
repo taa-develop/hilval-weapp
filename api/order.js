@@ -11,6 +11,8 @@ function apiCreateOrder(
         homestay{
           id
           name
+          price
+          deposit
         }
         orderNumber
         totalAmount
@@ -62,13 +64,22 @@ function apiGetOrderList(params) {
 function apiGetOrderDetail(orderId) {
   const str = `
   ($orderNumber:String!){
-    orderNumber
-    totalAmount
-    realAmount
-    intoDatetime
-    queitDatetime
+    orderDetail(orderNumber:$orderNumber){
+      orderNumber
+      totalAmount
+      realAmount
+      intoDatetime
+      queitDatetime
+      homestay{
+        id
+        name
+        picture
+        price
+        deposit
+      }
+    }
   }`
-  const token = mapStore('ApplyForm').token
+  const token = mapStore('App').token
   return query(token, str, { orderNumber: orderId })
 }
 
@@ -83,7 +94,7 @@ function apiPayOrder(
 ) {
   const str = `
   ($request:OrderPayInput!){
-    payOrder($request){
+    payOrder(request:$request){
       timeStamp
       nonceStr
       payPackage

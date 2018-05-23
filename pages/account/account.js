@@ -11,11 +11,24 @@ Page(
       app,
       user
     },
+
+    getUserInfo(e) {
+      console.log('授权登陆',e)
+      if (e.detail.iv) {
+        mapStore('User').signIn()
+      }
+    },
+
+    goto: e => {
+      if (!app.isLogin) {
+        wx.showToast({ title: '请先登陆！', icon: 'none' })
+        return
+      }
+      navTo(e)
+    },
+
     onLoad: function() {
       user.signIn()
-    },
-    handleLogin() {},
-
-    goto: e => navTo(e)
+    }
   })
 )

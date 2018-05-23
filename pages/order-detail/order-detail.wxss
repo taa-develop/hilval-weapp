@@ -1,0 +1,111 @@
+.order-confirmation {
+  min-height: 100vh;
+}
+
+.section-wrap {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+}
+.house-name {
+  margin: 5px 0;
+  font-size: 150%;
+}
+.info {
+  margin: 5px 0;
+  color: #757575;
+}
+.preview {
+  width: 100%;
+  height: 360rpx;
+}
+
+.time-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+.total-info {
+  color: rgb(68, 143, 132);
+}
+
+.fking-wrap {
+  margin: 20px 0;
+  padding-left: 10px;
+  background-color: #fff;
+}
+.title-bar {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  padding-right: 10px;
+  border-bottom: 1px solid #efefef;
+}
+
+.title {
+  flex: 1;
+  font-size: 110%;
+}
+.add-tenant-btn {
+  width: 25px;
+  height: 25px;
+}
+
+.tenant-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  padding-right: 10px;
+}
+.tenant-item:not(:last-child) {
+  border-bottom: 1px solid #efefef;
+}
+
+.name {
+  width: 4em;
+}
+.phone {
+  flex: 1;
+}
+.del-btn {
+  width: 25px;
+  height: 25px;
+}
+
+/* price line */
+.price-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  padding-right: 10px;
+}
+.price-line:not(:last-child) {
+  border-bottom: 1px solid #efefef;
+}
+
+.pay-bar > .clear {
+  height: 50px;
+}
+.pay-bar > .content-fixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 5px #999;
+}
+
+.pay-bar > .content-fixed > .price {
+  padding-left: 10px;
+  color: rgb(68, 143, 132);
+}
+.pay-bar > .content-fixed > .submit {
+  padding: 10px;
+  background-color: rgb(68, 143, 132);
+  color: #ffffff;
+}

@@ -1,11 +1,13 @@
 import { observer, mapStore, setStore } from '../../store/tools'
 import { dateFormat } from '../../utils/index'
 
+const app = mapStore('App')
 const form = mapStore('ApplyForm')
+const select=mapStore('BusinessSelect')
 
 Page(
   observer({
-    props: { form },
+    props: { app, form,select },
     data: {
       // date range
       start: '',
@@ -22,9 +24,15 @@ Page(
       ]
     },
 
+    handleUpdateKeyword(e){
+      console.log(e)
+      const keyword=e.detail.value
+      setStore(select,{keyword})
+    },
+
     handleLocation() {
       wx.chooseLocation({
-        success: res => console.log(res)
+        success: res => {setStore(select,{keyword:res.name})}
       })
     },
 
