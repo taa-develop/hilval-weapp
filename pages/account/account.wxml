@@ -7,11 +7,11 @@
 
       <!-- 登陆前的按钮 -->
       <view class="login-bar">
-        <button class="login-btn" wx:if="{{!props.app.isLogin}}" open-type="getUserInfo" bind:getuserinfo="getUserInfo">授权登陆</button>
+        <button class="login-btn" wx:if="{{!props.app.isLogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登陆</button>
       </view>
 
       <!-- 登陆后的信息 -->
-      <view class="message-bar" wx:if="{{props.app.isLogin}}">
+      <!-- <view class="message-bar" wx:if="{{props.app.isLogin}}">
         <view class="msg-item">
           <text class="num">2332</text>
           <view class="icon-wrap">
@@ -27,15 +27,15 @@
             <text class="icon-name">优惠卷</text>
           </view>
         </view>
-      </view>
+      </view> -->
     </view>
   </view>
   <view class="nav-group">
-    <view class="nav-link" data-url="" bind:tap="goto">
+    <!-- <view class="nav-link" data-url="" bind:tap="goto">
       <image class="icon" src="../../resource/icons/order-active.png"></image>
       <text class="text">全部订单</text>
       <image class="arrow" src="../../resource/icons/arrow.png"></image>
-    </view>
+    </view> -->
     <view class="nav-link" data-url="tenants" bind:tap="goto">
       <image class="icon" src="../../resource/icons/team.png"></image>
       <text class="text">常用出行人</text>
@@ -66,5 +66,5 @@
     </view>
   </view>
 
-  <login-cover-layer firstIn="{{props.app.firstIn}}"></login-cover-layer>
+  <!-- <login-cover-layer isLogin="{{props.app.isLogin}}" firstIn="{{props.app.firstIn}}"></login-cover-layer> -->
 </view>

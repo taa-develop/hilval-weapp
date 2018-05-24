@@ -57,8 +57,11 @@ class House {
   }
 
   getHouseDetail(houseId) {
-    apiGetHouseDetail(houseId).then(res => {
-      this.currHouseDetail = { ...res.data.data.homestayDetail }
+    return new Promise((resolve, reject) => {
+      apiGetHouseDetail(houseId).then(res => {
+        this.currHouseDetail = { ...res.data.data.homestayDetail }
+        resolve({ ...res.data.data.homestayDetail })
+      })
     })
   }
 }

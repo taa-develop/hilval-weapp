@@ -1,0 +1,10 @@
+<view class="login-page">
+  <view class="input-wrap">
+    <image class="icon" src="../../resource/icons/phone.png"></image>
+    <input type="text" placeholder="输入手机号码" />
+  </view>
+  <view class="input-wrap">
+    <image class="icon" src="../../resource/icons/code.png"></image>
+    <input type="text" placeholder="输入手机号码" />
+  </view>
+</view>

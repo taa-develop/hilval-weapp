@@ -50,12 +50,12 @@ class Order {
     return new Promise((resolve, reject) => {
       apiCreateOrder({ homestayId, orderAmount, intoDay, queitDay }).then(res => {
         // 创建订单之后，将此订单设置为当前需要支付的订单
-        console.log(res)
-        if (res.data.data.createOrder) {
+        if (!!res.data.data && !!res.data.data.createOrder) {
           console.log('order had handing', { ...res.data.data.createOrder })
           this.currPayingOrder = { ...res.data.data.createOrder }
           resolve()
         } else {
+          console.log('错误', res)
           let msg = res.data.errors[0].message || '系统错误'
           reject(msg)
         }
@@ -90,7 +90,7 @@ class Order {
   payOrderNow(params) {
     return new Promise((resolve, reject) => {
       apiPayOrder(params).then(res => {
-        if (res.data.payOrder) {
+        if (!!res.data && !!res.data.payOrder) {
           resolve()
         } else {
           reject(res.errors[0].message)

@@ -11,7 +11,7 @@ Page(
       const { id } = e.currentTarget.dataset
       const type = 'homestay'
       setStore(house, { currHouseId: id })
-      wx.navigateTo({ url: `/pages/${type}-detail/${type}-detail?id=${id}` })
+      wx.navigateTo({ url: `/pages/${type}-detail/${type}-detail` })
     },
 
     link(e) {

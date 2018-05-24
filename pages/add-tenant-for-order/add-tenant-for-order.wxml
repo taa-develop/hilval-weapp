@@ -4,9 +4,10 @@
 
 <view class="add-tenant-for-order">
   <view class="tenants-list">
-    <view class="tenant" wx:for="{{tenants}}" wx:key="{{index}}" data-id="{{item.id}}" bind:tap="handleClick">
+    <view class="tenant" wx:for="{{tenants}}" wx:key="{{index}}" data-obj="{{item}}" bind:tap="handleClick">
       <text class="name">{{item.name}}</text>
-      <text class="phone">189-3834-8743</text>
+      <text class="number">{{item.identityNumber}}</text>
+      <text class="status">{{['','通过','无效'][item.status]}}</text>
       <image class="check-icon {{item.checked?'hidden':''}}" src="../../resource/icons/check.png"></image>
       <image class="check-icon {{item.checked?'':'hidden'}}" src="../../resource/icons/check-active.png"></image>
     </view>

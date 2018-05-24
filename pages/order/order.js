@@ -16,14 +16,14 @@ Page(
     },
 
     handleTab(e) {
-      if(!app.isLogin){
-        wx.showToast({title:'请先登陆！',icon:'none'})
+      if (!app.isLogin) {
+        wx.showToast({ title: '请先登陆！', icon: 'none' })
         return
       }
 
-      const tabIndex=e.currentTarget.dataset.index
+      const tabIndex = e.currentTarget.dataset.index
       this.setData({ tabIndex })
-      order.getOrders(tabIndex+1)
+      order.getOrders(tabIndex + 1)
     },
 
     handleRefresh() {
@@ -43,10 +43,10 @@ Page(
     },
 
     // lifeCycle
-    onShow(){
+    onShow() {
       console.log('order page show')
-      if(!app.isLogin){
-        wx.showToast({title:'请先登陆！',icon:'none'})
+      if (!app.isLogin) {
+        wx.showToast({ title: '请先登陆！', icon: 'none' })
         return
       }
       order.getOrders(1)

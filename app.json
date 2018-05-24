@@ -20,6 +20,8 @@
     "pages/edit-tenant/edit-tenant",
     "pages/add-tenant/add-tenant",
 
+    "pages/login/login",
+
     "pages/order-confirmation/order-confirmation"
   ],
   "window": {

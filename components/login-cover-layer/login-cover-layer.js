@@ -1,7 +1,7 @@
 import { observer, mapStore, setStore } from '../../store/tools'
 
 Component({
-  properties: { firstIn: { type: Boolean } },
+  properties: { isLogin: { type: Boolean }, firstIn: { type: Boolean } },
 
   methods: {
     getUserInfo(e) {

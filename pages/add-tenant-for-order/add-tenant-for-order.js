@@ -10,11 +10,14 @@ Page({
   },
 
   handleClick(e) {
-    const { id } = e.currentTarget.dataset
+    const { obj } = e.currentTarget.dataset
+    if (obj.status === 2) {
+      return
+    }
     this.setData({
-      tenants: this.data.tenants.map(obj => ({
-        ...obj,
-        checked: obj.id === id ? !obj.checked : obj.checked
+      tenants: this.data.tenants.map(v => ({
+        ...v,
+        checked: v.id === obj.id ? !v.checked : v.checked
       }))
     })
     // 选择后,更新到store

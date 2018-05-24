@@ -1,0 +1,109 @@
+<view class="business-detail-container">
+  <scroll-view scroll-y class="scroll-container" scroll-into-view="{{toView}}" scroll-with-animation bindscroll="handleScroll">
+
+    <!-- 基本信息 -->
+    <view class="section-wrap" id="des">
+      <image class="preview" src="{{props.house.currHouseDetail.picture}}"></image>
+      <!-- <view class="top-tabs">
+        <text class="tab {{showId==='des'?'active':''}}" bind:tap="jump" data-anchor="des">详情信息</text>
+        <text class="tab {{showId==='map'?'active':''}}" bind:tap="jump" data-anchor="map">地址导航</text>
+        <text class="tab {{showId==='info'?'active':''}}" bind:tap="jump" data-anchor="info">住房须知</text>
+      </view> -->
+      <view class="name">{{props.house.currHouseDetail.name}}</view>
+      <!-- <view class="tags">
+          <tag-item wx:for="{{fetchData.tags}}" wx:key="{{index}}" text="{{item}}"></tag-item>
+        </view> -->
+      <view class="shot-des">{{props.house.currHouseDetail.area}}m^2 宜住{{props.house.currHouseDetail.fitPeopleQuantity}}人</view>
+    </view>
+
+    <!-- 详情 -->
+    <section-title title="详情信息"></section-title>
+    <view class="section-wrap">
+      <text class="sub-title">房屋描述</text>
+      <view class="description">{{props.house.currHouseDetail.feature}}</view>
+    </view>
+
+    <view class="section-wrap">
+      <text class="sub-title">配套设施</text>
+      <view class="facilities">
+        <view class="item" wx:if="{{!props.house.currHouseDetail.bedroomQuantity}}">
+          <image class="icon" src="../../resource/icons/home-active.png"></image>
+          <text class="name">卧室</text>
+        </view>
+        <view class="item" wx:if="{{!props.house.currHouseDetail.bathroomQuantity}}">
+          <image class="icon" src="../../resource/icons/home-active.png"></image>
+          <text class="name">卫生间</text>
+        </view>
+        <view class="item" wx:if="{{!props.house.currHouseDetail.saloonQuantity}}">
+          <image class="icon" src="../../resource/icons/home-active.png"></image>
+          <text class="name">客厅</text>
+        </view>
+        <view class="item" wx:if="{{!props.house.currHouseDetail.kitchenQuantity}}">
+          <image class="icon" src="../../resource/icons/home-active.png"></image>
+          <text class="name">厨房</text>
+        </view>
+        <view class="item" wx:if="{{!props.house.currHouseDetail.studyQuantity}}">
+          <image class="icon" src="../../resource/icons/home-active.png"></image>
+          <text class="name">书房</text>
+        </view>
+        <view class="item" wx:if="{{!props.house.currHouseDetail.balconyQuantity}}">
+          <image class="icon" src="../../resource/icons/home-active.png"></image>
+          <text class="name">阳台</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="section-wrap" id="map">
+      <text class="sub-title">地址导航</text>
+      <view class="map-wrap">
+        <image class="map" bind:tap="gotomap" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525263185285&di=e4827863e07c7e12704906565b5a3cbf&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D87513c60304e251fe2a2ecfc92b6e521%2F5882b2b7d0a20cf4f7c8608576094b36acaf9914.jpg"></image>
+        <view class="address">{{props.house.currHouseDetail.houseNumber}}</view>
+      </view>
+      <!-- <map style="width: 100%;height: 375rpx;"></map> -->
+    </view>
+
+    <!-- 评论 -->
+    <!-- <section-title title="房客点评"></section-title>
+      <view class="section-wrap" id="comment">
+        <tenant-comment wx:for="{{fetchData.comment}}" wx:key="{{index}}" data="{{item}}"></tenant-comment>
+      </view> -->
+
+    <!-- 须知 -->
+    <section-title title="住房须知"></section-title>
+    <view class="section-wrap" id="info">
+      <view class="stay-info">入住时间: {{props.house.currHouseDetail.intoTime}}</view>
+      <view class="stay-info">退房时间: {{props.house.currHouseDetail.queitTime}}</view>
+      <view class="stay-info">接待时间: {{props.house.currHouseDetail.receiveStartTime}} - {{props.house.currHouseDetail.receiveEndTime}}</view>
+      <view class="stay-info">接待性别:{{['不限','男','女'][props.house.currHouseDetail.receiveSex]}}</view>
+      <view class="stay-info">取消订单违约金: {{props.house.currHouseDetail.cancelOrderCost}}</view>
+    </view>
+
+    <!-- 更多酒店 -->
+    <!-- <section-title title="更多酒店"></section-title>
+      <view class="section-wrap">
+        <scroll-view scroll-x class="more">
+          <view class="more-item" wx:for="{{fetchMore}}" wx:key="{{index}}">
+            <image class="img" src="{{item.img}}"></image>
+            <text class="name">{{item.name}}</text>
+          </view>
+        </scroll-view>
+      </view> -->
+
+    <!-- fixed bar -->
+    <!-- <view class="top-tabs fixed {{showTabs?'':'hide'}}">
+        <text class="tab {{showId==='des'?'active':''}}" bind:tap="jump" data-anchor="des">详情信息</text>
+        <text class="tab {{showId==='map'?'active':''}}" bind:tap="jump" data-anchor="map">地址导航</text>
+        <text class="tab {{showId==='info'?'active':''}}" bind:tap="jump" data-anchor="info">住房须知</text>
+      </view> -->
+
+    <!-- 底部提交按钮 -->
+    <view class="bottom-ctrl">
+      <view class="clear"></view>
+      <view class="fixed">
+        <image class="call-icon" src="../../resource/icons/call.png" bind:tap="phoneCall"></image>
+        <text class="price">￥{{props.house.currHouseDetail.price}}</text>
+        <text class="submit" bind:tap="submit">预订</text>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -12,10 +12,15 @@ Page(
       user
     },
 
-    getUserInfo(e) {
-      console.log('授权登陆',e)
+    bindGetUserInfo(e) {
+      // 授权登陆
+      console.log('user info', e)
       if (e.detail.iv) {
         mapStore('User').signIn()
+        console.log('已授权')
+        // wx.navigateTo({
+        //   url: '/pages/login/login'
+        // })
       }
     },
 

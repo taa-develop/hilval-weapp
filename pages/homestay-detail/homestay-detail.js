@@ -1,23 +1,30 @@
 import { observer, mapStore, setStore } from '../../store/tools'
 
 const house = mapStore('House')
-const app=mapStore('App')
+const app = mapStore('App')
 
 Page(
   observer({
     props: { house },
     data: {
-      hotelId: '',
       toView: 'des',
       query: null,
       windowHeight: 0,
       showId: 'des',
-      showTabs: false
+      showTabs: false,
+
+      // map
+      lon: 0,
+      lat: 0,
+      markers: null
     },
+
     jump(e) {
+      // 跳到指定的锚点
       const a = e.currentTarget.dataset.anchor
       this.setData({ toView: a })
     },
+
     handleScroll(e) {
       // show fixed bar
       const showTabs = e.detail.scrollTop > 0.5 * this.data.windowHeight
@@ -36,40 +43,22 @@ Page(
           this.data.showId !== id && this.setData({ showId: id })
         })
     },
-    handleCheck(e) {
-      console.log(e.currentTarget.dataset.val)
-      const val = e.currentTarget.dataset.val
-      this.setData({
-        filters: this.data.filters.map(v => ({
-          ...v,
-          checked: v.val === val ? !v.checked : v.checked
-        }))
+
+    openMap(e) {
+      const { lon, lat } = e.currentTarget.dataset
+      console.log(lon, lat)
+      wx.openLocation({
+        latitude: +lat,
+        longitude: +lon
       })
     },
-    gotomap() {
-      wx.getLocation({
-        type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-        success: function(res) {
-          var latitude = res.latitude
-          var longitude = res.longitude
-          wx.openLocation({
-            latitude: latitude,
-            longitude: longitude,
-            scale: 28
-          })
-        }
-      })
-    },
+
     phoneCall() {
       // wx.makePhoneCall({ phoneNumber: this.data.fetchData.phone })
     },
 
     submit() {
       // 判断是否登陆
-      if(!app.isLogin){
-        wx.showToast({title:'请先登陆！',icon:'none'})
-        return
-      }
       // 先预定当前订单,后续确认
       mapStore('Order')
         .createOrder()
@@ -88,14 +77,22 @@ Page(
 
     // lifecycle
     onLoad() {
-      console.log('house id', house.currHouseId)
-      house.getHouseDetail(house.currHouseId)
-      setTimeout(() => {
-        console.log(this.props.house.currHouseDetail)
-      }, 1000)
-      this.setData({
-        query: wx.createSelectorQuery(),
-        windowHeight: wx.getSystemInfoSync().windowHeight
+      house.getHouseDetail(house.currHouseId).then(res => {
+        // 拿到数据后，需要设置map对象
+        this.setData({
+          lon: res.lon,
+          lat: res.lat,
+          markers: [
+            {
+              iconPath: '../../resource/icons/loc-fill.png',
+              id: 0,
+              latitude: res.lat,
+              longitude: res.lon,
+              width: 30,
+              height: 30
+            }
+          ]
+        })
       })
     }
   })

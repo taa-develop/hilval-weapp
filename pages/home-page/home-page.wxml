@@ -3,24 +3,26 @@
  -->
 
 <view class="home-page">
+  <image class="top-img" src="../../resource/images/home-top.jpg"></image>
   <view class="form-panel">
     <view class="address-section">
       <view class="address-name">
-        <input class="input-wrap" type="text" confirm-type="search" placeholder="输入目的地/景点" maxlength="30" value="{{props.select.keyword}}" bindconfirm="handleUpdateKeyword" />
+        <input class="input-wrap" type="text" confirm-type="search" placeholder="输入目的地/景点" maxlength="30" value="{{props.select.keyword}}"
+          bindconfirm="handleUpdateKeyword" />
       </view>
       <image class="location-icon" src="../../resource/icons/location.png"></image>
       <text class="location-tips" bind:tap="handleLocation">当前位置</text>
     </view>
 
     <view class="date-section">
-      <picker mode="date" start="{{start}}" end="end" value="{{props.form.startDateText}}" data-datetype="start" bind:change="handleDate">
+      <picker mode="date" start="{{start}}" end="{{end}}" value="{{props.form.startDateText}}" data-datetype="start" bind:change="handleDate">
         <view class="date-item">
           <view class="date">{{props.form.startDateText}}</view>
           <view class="label">入住</view>
         </view>
       </picker>
       <view class="center-line">/</view>
-      <picker mode="date" start="{{start}}" end="end" value="{{props.form.endDateText}}" data-datetype="end" bind:change="handleDate">
+      <picker mode="date" start="{{start}}" end="{{end}}" value="{{props.form.endDateText}}" data-datetype="end" bind:change="handleDate">
         <view class="date-item">
           <view class="date">{{props.form.endDateText}}</view>
           <view class="label">退房</view>
@@ -38,6 +40,6 @@
     <button class="search-btn" bind:tap="handleSubmit">搜索</button>
 
     <!-- 第一次进入app,强制用户打开授权界面 -->
-    <login-cover-layer firstIn="{{props.app.firstIn}}"></login-cover-layer>
+    <login-cover-layer isLogin="{{props.app.isLogin}}" firstIn="{{props.app.firstIn}}"></login-cover-layer>
   </view>
 </view>

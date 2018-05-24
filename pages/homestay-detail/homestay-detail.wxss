@@ -98,10 +98,10 @@
   height: 600rpx;
 }
 .map-wrap > .address {
-  position: absolute;
+  /* position: absolute;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0; */
   padding: 10px;
   background-color: rgba(68, 143, 132, 1);
   color: #ffffff;
