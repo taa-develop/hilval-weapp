@@ -12,6 +12,33 @@ function saveUserInfo(info) {
   query(token, str, { info: { encryptedData: info.encryptedData, iv: info.iv } })
 }
 
+function apiGetUserDetail() {
+  const str = `
+    {
+      wechatUserInfo{
+        name
+        countryCode
+        mobile
+        email
+        identityType
+        identityNumber
+      }
+    }
+  `
+  const token = mapStore('App').token
+  return query(token, str)
+}
+
+function apiImproveUserInfo(params) {
+  const str = `
+    ($request:ImproveUserInfoRequest!){
+      improveUserInfo(request:$request)
+    }
+  `
+  const token = mapStore('App').token
+  return mutation(token, str, { request: params })
+}
+
 function apiGetUserInfo() {
   return new Promise((resolve, reject) => {
     try {
@@ -118,6 +145,8 @@ function apiDeleteTraveler(id) {
 
 export {
   apiGetUserInfo,
+  apiGetUserDetail,
+  apiImproveUserInfo,
   apiAddUserTraveler,
   apiGetUserTraveler,
   apiGetTravelerDetail,

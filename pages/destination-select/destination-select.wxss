@@ -1,0 +1,20 @@
+.destination-select{
+  background-color: #fff;
+}
+.list-wrap {
+  padding: 0 10px 10px 5px;
+}
+.country{
+  margin: 10px 0;
+  color:#449284;
+}
+.city-item {
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #efefef;
+  color: #757575;
+  font-size: 12px;
+}

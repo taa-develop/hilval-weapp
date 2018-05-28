@@ -54,7 +54,6 @@
   <view class="section-wrap" id="map">
     <text class="sub-title">地址导航</text>
     <view class="map-wrap" data-lon="{{lon}}" data-lat="{{lat}}" bind:tap="openMap">
-      <!-- <image class="map" bind:tap="gotomap" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1525263185285&di=e4827863e07c7e12704906565b5a3cbf&imgtype=0&src=http%3A%2F%2Fg.hiphotos.baidu.com%2Fzhidao%2Fwh%253D450%252C600%2Fsign%3D87513c60304e251fe2a2ecfc92b6e521%2F5882b2b7d0a20cf4f7c8608576094b36acaf9914.jpg"></image> -->
       <map class="map" longitude="{{lon}}" latitude="{{lat}}" markers="{{markers}}"></map>
       <view class="address">{{props.house.currHouseDetail.houseNumber}}</view>
     </view>
@@ -74,7 +73,12 @@
   <view class="bottom-ctrl">
     <view class="clear"></view>
     <view class="fixed">
-      <image class="call-icon" src="../../resource/icons/call.png" bind:tap="phoneCall"></image>
+      <image
+        class="call-icon"
+        src="../../resource/icons/call.png"
+        data-phone="{{props.house.currHouseDetail.hotelSysUser.mobile}}"
+        bind:tap="phoneCall"
+      ></image>
       <text class="price">￥{{props.house.currHouseDetail.price}}</text>
       <text class="submit" bind:tap="submit">预订</text>
     </view>

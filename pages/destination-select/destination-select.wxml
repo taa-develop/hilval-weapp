@@ -1,0 +1,23 @@
+<!-- 
+  首页地址，点击后，进入目的地选择页面
+ -->
+<view class="destination-select">
+  <view
+    wx:for="{{desList}}"
+    wx:for-index="gid"
+    wx:for-item="g"
+    wx:key="gid"
+    class="list-wrap"
+  >
+    <view class="country">{{g.country}}</view>
+    <text
+      wx:for="{{g.city}}"
+      wx:for-index="cid"
+      wx:for-item="c"
+      wx:key="{{index}}"
+      class="city-item"
+      bind:tap="handleClick"
+      data-label="{{c.label}}"
+    >{{c.label}}</text>
+  </view>
+</view>

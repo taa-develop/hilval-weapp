@@ -1,13 +1,24 @@
 <view class="account-page">
   <view class="user-box">
-    <image class="wtf-bg" src="../../resource/images/user-bg.jpg"></image>
+    <image class="wtf-bg" mode="aspectFill" src="../../resource/images/banner6.jpg"></image>
     <view class="user-info">
+      <image
+        class="ctrl-btn"
+        src="../../resource/icons/setting.png"
+        bind:tap="openSetting"
+      ></image>
+
       <image class="avatar" src="{{props.user.info.avatarUrl}}"></image>
       <view class="user-name">{{props.user.info.nickName}}</view>
 
       <!-- 登陆前的按钮 -->
       <view class="login-bar">
-        <button class="login-btn" wx:if="{{!props.app.isLogin}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登陆</button>
+        <button
+          class="login-btn"
+          wx:if="{{!props.app.isLogin}}"
+          open-type="getUserInfo"
+          bindgetuserinfo="bindGetUserInfo"
+        >授权登陆</button>
       </view>
 
       <!-- 登陆后的信息 -->

@@ -1,4 +1,4 @@
-import { observable } from './tools'
+import { observable,mapStore } from './tools'
 import { apiLogin } from '../api/login'
 
 class App {
@@ -16,6 +16,7 @@ class App {
       }
       if (infoObj) {
         this.isLogin = true
+        mapStore('User').signIn()
       }
     })
   }

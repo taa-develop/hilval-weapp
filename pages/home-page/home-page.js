@@ -3,36 +3,50 @@ import { dateFormat } from '../../utils/index'
 
 const app = mapStore('App')
 const form = mapStore('ApplyForm')
-const select=mapStore('BusinessSelect')
+const select = mapStore('BusinessSelect')
 
 Page(
   observer({
-    props: { app, form,select },
+    props: { app, form, select },
     data: {
       // date range
       start: '',
       end: '',
       peopleOptions: [
+        { label: '不限人数', value: 0 },
         { label: '1人', value: 1 },
         { label: '2人', value: 2 },
         { label: '3人', value: 3 },
         { label: '4人', value: 4 },
         { label: '5人', value: 5 },
         { label: '6人', value: 6 },
-        { label: '7人', value: 7 },
-        { label: '不限人数', value: 0 }
+        { label: '7人', value: 7 }
+      ],
+      banner: [
+        { url: '../../resource/images/banner1.jpg' },
+        { url: '../../resource/images/banner2.jpg' },
+        { url: '../../resource/images/banner3.jpg' },
+        { url: '../../resource/images/banner4.jpg' },
+        { url: '../../resource/images/banner5.jpg' }
       ]
     },
 
-    handleUpdateKeyword(e){
+    handleInputClick(e) {
+      // 跳转到目的地选择页面
+      wx.navigateTo({ url: '/pages/destination-select/destination-select' })
+    },
+
+    handleUpdateKeyword(e) {
       console.log(e)
-      const keyword=e.detail.value
-      setStore(select,{keyword})
+      const keyword = e.detail.value
+      setStore(select, { keyword })
     },
 
     handleLocation() {
       wx.chooseLocation({
-        success: res => {setStore(select,{keyword:res.name})}
+        success: res => {
+          setStore(select, { keyword: res.name })
+        }
       })
     },
 
@@ -69,6 +83,13 @@ Page(
         start: dateFormat(today),
         end: dateFormat(future)
       })
+    },
+
+    onShareAppMessage(res) {
+      return {
+        title: '晓行出行',
+        path: '/pages/home-page/home-page'
+      }
     }
   })
 )

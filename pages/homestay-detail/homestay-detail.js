@@ -53,26 +53,37 @@ Page(
       })
     },
 
-    phoneCall() {
-      // wx.makePhoneCall({ phoneNumber: this.data.fetchData.phone })
+    phoneCall(e) {
+      wx.makePhoneCall({ phoneNumber: e.currentTarget.dataset.phone })
     },
 
     submit() {
       // 判断是否登陆
       // 先预定当前订单,后续确认
-      mapStore('Order')
-        .createOrder()
-        .then(() => {
+      const { name, mobile, identityNumber } = mapStore('User').userDetail
+      if (name && mobile && identityNumber) {
+        mapStore('Order')
+          .createOrder()
+          .then(() => {
+            wx.navigateTo({
+              url: '/pages/order-confirmation/order-confirmation'
+            })
+          })
+          .catch(msg => {
+            wx.showToast({
+              title: msg,
+              icon: 'none'
+            })
+          })
+      } else {
+        wx.showToast({ title: '请先完善用户信息', icon: 'none' })
+        const t = setTimeout(() => {
+          clearTimeout(t)
           wx.navigateTo({
-            url: '/pages/order-confirmation/order-confirmation'
+            url: '/pages/account-setting/account-setting'
           })
-        })
-        .catch(msg => {
-          wx.showToast({
-            title: msg,
-            icon: 'none'
-          })
-        })
+        }, 3000)
+      }
     },
 
     // lifecycle

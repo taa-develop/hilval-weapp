@@ -53,6 +53,10 @@ function apiGetHouseDetail(id = 1) {
         installations{
           name
         }
+        hotelSysUser{
+          userName
+          mobile
+        }
       }
     }
   `

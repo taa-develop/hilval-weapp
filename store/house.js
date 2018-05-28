@@ -12,6 +12,7 @@ function getParams() {
   params.dictHouseTypeCodes = [...select.types.map(v => v.code)]
   params.minPrice = select.price.min
   params.maxPrice = select.price.max
+  params.quantity = form.peopleIndex
   if (select.sort.value !== 'def') {
     params.page = { orderByColumn: 'price', ordeByType: 'asc' }
   }

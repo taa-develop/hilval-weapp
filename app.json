@@ -11,6 +11,7 @@
     "pages/business-select-by-sort/business-select-by-sort",
     "pages/business-select-by-filter/business-select-by-filter",
     "pages/add-tenant-for-order/add-tenant-for-order",
+    "pages/destination-select/destination-select",
 
     "pages/order/order",
     "pages/order-detail/order-detail",
@@ -19,6 +20,7 @@
     "pages/tenants/tenants",
     "pages/edit-tenant/edit-tenant",
     "pages/add-tenant/add-tenant",
+    "pages/account-setting/account-setting",
 
     "pages/login/login",
 

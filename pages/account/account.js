@@ -32,6 +32,13 @@ Page(
       navTo(e)
     },
 
+    openSetting() {
+      app.isLogin &&
+        wx.navigateTo({
+          url: '/pages/account-setting/account-setting'
+        })
+    },
+
     onLoad: function() {
       user.signIn()
     }

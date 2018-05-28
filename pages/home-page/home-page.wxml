@@ -3,12 +3,19 @@
  -->
 
 <view class="home-page">
-  <image class="top-img" src="../../resource/images/home-top.jpg"></image>
+  <!-- <image class="top-img" src="../../resource/images/home-top.jpg"></image> -->
+  <swiper id="top-swiper" autoplay="{{true}}" circular="{{true}}">
+    <block wx:for="{{banner}}" wx:key="{{index}}">
+      <swiper-item>
+        <image src="{{item.url}}" mode="aspectFill" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
   <view class="form-panel">
     <view class="address-section">
       <view class="address-name">
-        <input class="input-wrap" type="text" confirm-type="search" placeholder="输入目的地/景点" maxlength="30" value="{{props.select.keyword}}"
-          bindconfirm="handleUpdateKeyword" />
+        <input class="input-wrap" type="text" confirm-type="search" placeholder="选择目的地/景点" maxlength="30" disabled value="{{props.select.keyword}}"
+          bindconfirm="handleUpdateKeyword" bind:tap="handleInputClick" />
       </view>
       <image class="location-icon" src="../../resource/icons/location.png"></image>
       <text class="location-tips" bind:tap="handleLocation">当前位置</text>
