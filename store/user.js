@@ -3,7 +3,8 @@ import {
   apiGetUserInfo,
   apiGetUserDetail,
   apiImproveUserInfo,
-  apiGetUserTraveler
+  apiGetUserTraveler,
+  apiEditTraveler
 } from '../api/user-info'
 
 class User {
@@ -66,6 +67,19 @@ class User {
       apiGetUserTraveler().then(res => {
         this.userTravelers = res.data.data.userTravelers
         resolve(res.data.data.userTravelers)
+      })
+    })
+  }
+
+  updateTraveler(params) {
+    return new Promise((resolve, reject) => {
+      apiEditTraveler(params).then(res => {
+        if (res.data.data.updateUserTraveler) {
+          this.getTraveler()
+          resolve()
+        } else {
+          reject(res.errors[0].message)
+        }
       })
     })
   }

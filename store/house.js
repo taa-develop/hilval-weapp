@@ -34,7 +34,12 @@ class House {
 
   getList() {
     apiGetHouseList(getParams()).then(res => {
-      this.houseList = [...res.data.data.queryHomestays.datas]
+      this.houseList = [
+        ...res.data.data.queryHomestays.datas.map(v => ({
+          ...v,
+          picture: `https://source.hilval.com/${v.picture}`
+        }))
+      ]
       this.hasNext = res.data.data.queryHomestays.page.hasNext
     })
   }
@@ -60,8 +65,12 @@ class House {
   getHouseDetail(houseId) {
     return new Promise((resolve, reject) => {
       apiGetHouseDetail(houseId).then(res => {
-        this.currHouseDetail = { ...res.data.data.homestayDetail }
-        resolve({ ...res.data.data.homestayDetail })
+        const resData = {
+          ...res.data.data.homestayDetail,
+          picture: `https://source.hilval.com/${res.data.data.homestayDetail.picture}`
+        }
+        this.currHouseDetail = resData
+        resolve(resData)
       })
     })
   }

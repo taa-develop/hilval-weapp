@@ -68,6 +68,7 @@ Page(
           this.setData({
             orderDetail: {
               ...detail,
+              picture:`https://source.hilval.com/${detail.picture}`,
               intoDate,
               queitDate,
               days

@@ -23,6 +23,7 @@ const mutateList = res =>
       (1000 * 60 * 60 * 24)
     return {
       ...o,
+      homestay: { ...o.homestay, picture: `https://source.hilval.com/${o.homestay.picture}` },
       startDateText: `${startM}月${startD}日`,
       endDateText: `${endM}月${endD}日`,
       days

@@ -22,7 +22,6 @@ Page(
       // 检查出行人
       const travelers = form.travelers.map(obj => obj.id)
       if (!!travelers.length) {
-        wx.switchTab({url: '/pages/order/order?type=unstarted'})
         apiPayOrder({
           orderNumber: order.currPayingOrder.orderNumber,
           payAmount: order.currPayingOrder.totalAmount,
@@ -30,6 +29,7 @@ Page(
           queitDay: form.endDateText,
           travelers
         }).then(res => {
+          console.log('on pay order',res)
           if (res.data.data.payOrder) {
             const {timeStamp,nonceStr,payPackage,signType,paySign}=res.data.data.payOrder
             // 开始调用支付接口

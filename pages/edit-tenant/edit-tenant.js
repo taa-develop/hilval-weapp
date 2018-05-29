@@ -1,4 +1,7 @@
 import { apiGetTravelerDetail, apiEditTraveler, apiDeleteTraveler } from '../../api/user-info'
+import { mapStore } from '../../store/tools'
+
+const user = mapStore('User')
 
 Page({
   data: {
@@ -42,8 +45,13 @@ Page({
       })
     } else {
       const { id, identityType, identityNumber, name, countryCode, mobile, email } = this.data
-      apiEditTraveler({ id, identityType, identityNumber, name, countryCode, mobile, email })
-      wx.navigateBack()
+      // apiEditTraveler({ id, identityType, identityNumber, name, countryCode, mobile, email })
+      user
+        .updateTraveler({ id, identityType, identityNumber, name, countryCode, mobile, email })
+        .then(() => {
+          wx.navigateBack()
+        })
+        .catch(err => wx.showToast({ title: `错误:${err}`, icon: 'none' }))
     }
   },
 
