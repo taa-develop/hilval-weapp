@@ -57,6 +57,10 @@ function apiGetHouseDetail(id = 1) {
           userName
           mobile
         }
+        homestayImages{
+          id
+          image
+        }
       }
     }
   `

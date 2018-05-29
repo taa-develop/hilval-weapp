@@ -19,6 +19,10 @@ Page(
       markers: null
     },
 
+    handleSwiper(e){
+      console.log(e.detail)
+    },
+
     jump(e) {
       // 跳到指定的锚点
       const a = e.currentTarget.dataset.anchor

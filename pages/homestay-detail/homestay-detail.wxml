@@ -4,12 +4,13 @@
 
   <!-- 基本信息 -->
   <view class="section-wrap" id="des">
-    <image class="preview" src="{{props.house.currHouseDetail.picture}}"></image>
-    <!-- <view class="top-tabs">
-          <text class="tab {{showId==='des'?'active':''}}" bind:tap="jump" data-anchor="des">详情信息</text>
-          <text class="tab {{showId==='map'?'active':''}}" bind:tap="jump" data-anchor="map">地址导航</text>
-          <text class="tab {{showId==='info'?'active':''}}" bind:tap="jump" data-anchor="info">住房须知</text>
-        </view> -->
+    <swiper class="preview" indicator-dots indicator-active-color="#449284" bindanimationfinish="handleSwiper">
+      <block wx:for="{{props.house.currHouseDetail.homestayImages}}" wx:key="{{item.id}}">
+        <swiper-item>
+          <image src="{{'https://source.hilval.com'+item.image}}" class="slide-image" width="100%" height="200rpx" />
+        </swiper-item>
+      </block>
+    </swiper>
     <view class="name">{{props.house.currHouseDetail.name}}</view>
     <view class="shot-des">{{props.house.currHouseDetail.area}}m^2 宜住{{props.house.currHouseDetail.fitPeopleQuantity}}人</view>
   </view>
@@ -73,12 +74,8 @@
   <view class="bottom-ctrl">
     <view class="clear"></view>
     <view class="fixed">
-      <image
-        class="call-icon"
-        src="../../resource/icons/call.png"
-        data-phone="{{props.house.currHouseDetail.hotelSysUser.mobile}}"
-        bind:tap="phoneCall"
-      ></image>
+      <image class="call-icon" src="../../resource/icons/call.png" data-phone="{{props.house.currHouseDetail.hotelSysUser.mobile}}"
+        bind:tap="phoneCall"></image>
       <text class="price">￥{{props.house.currHouseDetail.price}}</text>
       <text class="submit" bind:tap="submit">预订</text>
     </view>
