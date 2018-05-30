@@ -1,0 +1,16 @@
+<!-- 
+  自定义轮播组件;小程序的太lj
+ -->
+
+<view
+ class="super-swiper"
+>
+ <view class="container">
+   <image
+    wx:for="{{imgsStyled}}"
+    wx:key="{{item.id}}"
+    class="img {{item.typeClass}}"
+    src="{{item.url}}"
+   ></image>
+ </view>
+</view>

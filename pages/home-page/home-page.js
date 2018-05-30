@@ -23,11 +23,11 @@ Page(
         { label: '7人', value: 7 }
       ],
       banner: [
-        { url: '../../resource/images/banner1.jpg' },
-        { url: '../../resource/images/banner2.jpg' },
-        { url: '../../resource/images/banner3.jpg' },
-        { url: '../../resource/images/banner4.jpg' },
-        { url: '../../resource/images/banner5.jpg' }
+        { id:'banner-1',url: '../../resource/images/banner1.jpg' },
+        { id:'banner-2',url: '../../resource/images/banner2.jpg' },
+        { id:'banner-3',url: '../../resource/images/banner3.jpg' },
+        { id:'banner-4',url: '../../resource/images/banner4.jpg' },
+        { id:'banner-5',url: '../../resource/images/banner5.jpg' }
       ]
     },
 

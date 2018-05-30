@@ -3,14 +3,9 @@
  -->
 
 <view class="home-page">
-  <!-- <image class="top-img" src="../../resource/images/home-top.jpg"></image> -->
-  <swiper id="top-swiper" autoplay="{{true}}" circular="{{true}}">
-    <block wx:for="{{banner}}" wx:key="{{index}}">
-      <swiper-item>
-        <image src="{{item.url}}" mode="aspectFill" class="slide-image" />
-      </swiper-item>
-    </block>
-  </swiper>
+
+  <super-swiper imgs="{{banner}}"></super-swiper>
+
   <view class="form-panel">
     <view class="address-section">
       <view class="address-name">

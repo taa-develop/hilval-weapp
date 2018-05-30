@@ -1,1 +1,6 @@
-{ "usingComponents": { "login-cover-layer": "/components/login-cover-layer/login-cover-layer" } }
+{
+  "usingComponents": {
+    "login-cover-layer": "/components/login-cover-layer/login-cover-layer",
+    "super-swiper": "/components/super-swiper/super-swiper"
+  }
+}
