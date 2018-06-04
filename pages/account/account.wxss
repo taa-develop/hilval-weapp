@@ -2,7 +2,7 @@
   position: relative;
   margin-bottom: 80px;
 }
-.wtf-bg {
+.user-bg {
   display: block;
   width: 750rpx;
   height: 360rpx;

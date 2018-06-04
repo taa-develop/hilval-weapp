@@ -10,8 +10,7 @@ Page(
       // 保存查看的houseID
       const { id } = e.currentTarget.dataset
       const type = 'homestay'
-      setStore(house, { currHouseId: id })
-      wx.navigateTo({ url: `/pages/${type}-detail/${type}-detail` })
+      wx.navigateTo({ url: `/pages/${type}-detail/${type}-detail?id=${id}` })
     },
 
     link(e) {
@@ -30,7 +29,7 @@ Page(
     },
 
     // lifecycle
-    onLoad() {
+    onLoad(opt) {
       house.getTypes()
     },
 

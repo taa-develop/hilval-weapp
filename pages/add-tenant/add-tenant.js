@@ -35,9 +35,10 @@ Page({
         this.data.countryCode
       )
     ) {
-      wx.showToast({
-        title: '请先完成表单!',
-        icon: 'none'
+      wx.showModal({
+        title: '提示',
+        content: '请先完成表单!',
+        showCancel: false
       })
     } else {
       const { identityType, identityNumber, name, countryCode, mobile, email } = this.data

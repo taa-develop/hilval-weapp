@@ -22,6 +22,7 @@ Page(
       }
 
       const tabIndex = e.currentTarget.dataset.index
+      console.log(tabIndex)
       this.setData({ tabIndex })
       order.getOrders(tabIndex + 1)
     },
@@ -39,6 +40,20 @@ Page(
       const orderId = e.currentTarget.dataset.id
       wx.navigateTo({
         url: `/pages/order-detail/order-detail?id=${orderId}&type=unpaid`
+      })
+    },
+
+    handleDelete(e) {
+      const orderId = e.currentTarget.dataset.id
+      wx.showModal({
+        title: '提示',
+        content: '是否取消该订单?',
+        success: res => {
+          if (res.confirm) {
+            console.log('yes', orderId)
+            order.deleteOrder(orderId)
+          }
+        }
       })
     },
 

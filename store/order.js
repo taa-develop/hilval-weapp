@@ -1,5 +1,11 @@
 import { observable, mapStore } from './tools'
-import { apiCreateOrder, apiGetOrderList, apiGetOrderDetail, apiPayOrder } from '../api/order'
+import {
+  apiCreateOrder,
+  apiGetOrderList,
+  apiGetOrderDetail,
+  apiPayOrder,
+  apiDeleteOrder
+} from '../api/order'
 
 const mapOrder = [
   { type: 1, name: 'Unpaid' },
@@ -66,6 +72,7 @@ class Order {
 
   getOrders(orderType) {
     const orderObj = mapOrder.find(v => v.type === orderType)
+    console.log(orderObj)
     apiGetOrderList({ page: {}, type: orderObj.type }).then(res => {
       this[`orders${orderObj.name}`] = {
         datas: mutateList(res),
@@ -100,8 +107,13 @@ class Order {
     })
   }
 
-  payOrderFromList(orderNumber) {
-    // 在未支付订单列表里点击‘马上支付’
+  deleteOrder(orderNumber) {
+    apiDeleteOrder(orderNumber).then(res => {
+      if (res.data.data.cancelOrder) {
+        console.log('had delete')
+        this.getOrders(1)
+      }
+    })
   }
 }
 

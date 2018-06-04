@@ -5,9 +5,8 @@ Page(
   observer({
     data: {
       list: [
-        { name: '默认排序', value: 'def' },
-        { name: '价格由高到低', value: 'asc' },
-        { name: '价格由低到高', value: 'desc' }
+        { name: '价格由低到高', value: 'asc' },
+        { name: '价格由高到低', value: 'desc' }
       ]
     },
     props: { select },

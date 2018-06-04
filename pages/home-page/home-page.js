@@ -4,6 +4,7 @@ import { dateFormat } from '../../utils/index'
 const app = mapStore('App')
 const form = mapStore('ApplyForm')
 const select = mapStore('BusinessSelect')
+const house = mapStore('House')
 
 Page(
   observer({
@@ -23,11 +24,51 @@ Page(
         { label: '7人', value: 7 }
       ],
       banner: [
-        { id:'banner-1',url: '../../resource/images/banner1.jpg' },
-        { id:'banner-2',url: '../../resource/images/banner2.jpg' },
-        { id:'banner-3',url: '../../resource/images/banner3.jpg' },
-        { id:'banner-4',url: '../../resource/images/banner4.jpg' },
-        { id:'banner-5',url: '../../resource/images/banner5.jpg' }
+        {
+          id: 'banner-1',
+          textZH: '香港',
+          textEN: 'hongkong',
+          url:
+            'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528109865805&di=ac9fe919aaa15b12803ef2efc3e6320b&imgtype=0&src=http%3A%2F%2Fimg06.tooopen.com%2Fimages%2F20161031%2Ftooopen_sy_184257814572.jpg'
+        },
+        {
+          id: 'banner-2',
+          textZH: '普吉岛',
+          textEN: 'phuket',
+          url:
+            'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=3275782613,1124369566&fm=27&gp=0.jpg'
+        },
+        {
+          id: 'banner-3',
+          textZH: '三亚',
+          textEN: 'sanya',
+          url:
+            'http://staticfile.tujia.com/upload/TravelArticleContent/day_160108/201601080053174172.jpg'
+        }
+      ],
+      recommendList: [],
+      strategy:[
+        {
+          id: 'strategy-1',
+          textZH: '巴厘岛',
+          textEN: 'Bali',
+          url:
+            'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1540367103,3998607624&fm=27&gp=0.jpg'
+        },
+        {
+          id: 'strategy-2',
+          textZH: '杭州',
+          textEN: 'HangZhou',
+          url:
+            'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=140836095,3593537244&fm=27&gp=0.jpg'
+        },
+        {
+          id: 'strategy-3',
+          textZH: '南京',
+          textEN: 'NanJing',
+          url:
+            'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=357671502,975226938&fm=27&gp=0.jpg'
+        },
       ]
     },
 
@@ -69,13 +110,27 @@ Page(
     },
 
     handleSubmit() {
-      // console.log(form)
-      wx.navigateTo({
-        url: '/pages/business/business'
-      })
+      console.log(new Date(form.endDateText).getTime() - new Date(form.startDateText).getTime() > 0)
+      if (new Date(form.endDateText).getTime() - new Date(form.startDateText).getTime() > 0) {
+        wx.navigateTo({
+          url: '/pages/business/business'
+        })
+      } else {
+        wx.showModal({ title: '错误', content: '入住日期不能大于退房日期!', showCancel: false })
+      }
     },
 
     // lifecycle
+    onLoad() {
+      // 进入时,获取推荐民宿;大bug,不延迟无法获取token
+      setTimeout(() => {
+        house.getList().then(res => {
+          console.log('house list', res)
+          this.setData({ recommendList: res })
+        })
+      }, 1000)
+    },
+
     onShow() {
       const today = new Date()
       const future = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 90)
@@ -87,8 +142,10 @@ Page(
 
     onShareAppMessage(res) {
       return {
-        title: '晓行出行',
-        path: '/pages/home-page/home-page'
+        title: '夏威夷海滩',
+        path: '/pages/home-page/home-page',
+        imageUrl:
+          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528094351381&di=1332092ac843dde8f4aa276af5b09e1d&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57456d7717ccd.jpg'
       }
     }
   })

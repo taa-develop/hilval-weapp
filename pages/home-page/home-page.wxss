@@ -1,15 +1,26 @@
 /* padding=10px */
-.top-img {
-  width: 100%;
-  height: 560rpx;
+
+.swiper {
+  margin-bottom: 20px;
+  height: 375rpx;
 }
 
 .slide-image {
   display: block;
-  width: 500rpx;
-  height: 250rpx;
-  margin: 10px auto;
-  border-radius: 10px;
+  width: 750rpx;
+  height: 375rpx;
+}
+
+swiper-item > .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400rpx;
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+  color: #fff;
+  transform: translate(-50%, -50%);
 }
 
 .form-panel {
@@ -21,6 +32,7 @@
   padding-bottom: 1px;
   border-radius: 5px;
   background-color: #fff;
+  box-shadow: 0 0px 10px #ddd;
 }
 
 /* address */
@@ -99,4 +111,75 @@
   50% {
     transform: perspective(300px) rotateY(180deg);
   }
+}
+
+/* line titel */
+.line-title {
+  position: relative;
+  text-align: center;
+  color: #444444;
+}
+
+.line-title::before,
+.line-title::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4em;
+  height: 1px;
+  content: '';
+  background-color: #bdbdbd;
+}
+
+.line-title::before {
+  transform: translateX(-8em);
+}
+.line-title::after {
+  transform: translateX(4em);
+}
+
+/* recommend list */
+.scroll-container {
+  margin: 20px 10px;
+  overflow: hidden;
+}
+.house-list {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.house-item {
+  position: relative;
+  display: inline-block;
+  width: 500rpx;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.house-img {
+  display: block;
+  width: 500rpx;
+  height: 250rpx;
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+.house-name {
+  margin-top: 10px;
+}
+
+.house-price {
+  color: rgb(68, 143, 132);
+}
+
+/* stratege */
+.house-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1.5;
+  transform: translate(-50%, -50%);
 }

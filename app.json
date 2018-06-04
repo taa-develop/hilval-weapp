@@ -27,10 +27,10 @@
     "pages/order-confirmation/order-confirmation"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#449284",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "晓行出行",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#bfbfbf",

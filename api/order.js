@@ -106,4 +106,14 @@ function apiPayOrder(
   return mutation(token, str, { request: params })
 }
 
-export { apiCreateOrder, apiGetOrderList, apiGetOrderDetail, apiPayOrder }
+function apiDeleteOrder(orderNumber) {
+  const str = `
+  ($orderNumber:String!){
+    cancelOrder(orderNumber:$orderNumber)
+  }
+  `
+  const token = mapStore('App').token
+  return mutation(token, str, { orderNumber })
+}
+
+export { apiCreateOrder, apiGetOrderList, apiGetOrderDetail, apiPayOrder, apiDeleteOrder }

@@ -30,7 +30,7 @@
         </view>
 
         <view class="bottom-bar">
-          <text class="btn">取消</text>
+          <text class="btn" data-id="{{item.orderNumber}}" bind:tap="handleDelete">取消</text>
           <text class="btn" data-id="{{item.orderNumber}}" bind:tap="handlePayNow">马上支付</text>
         </view>
       </view>

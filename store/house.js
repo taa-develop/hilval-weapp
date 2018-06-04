@@ -13,10 +13,7 @@ function getParams() {
   params.minPrice = select.price.min
   params.maxPrice = select.price.max
   params.quantity = form.peopleIndex
-  if (select.sort.value !== 'def') {
-    params.page = { orderByColumn: 'price', ordeByType: 'asc' }
-  }
-  console.log('parmas', params)
+  params.page = { orderByColumn: 'price', orderByType: select.sort.value }
   return params
 }
 
@@ -33,24 +30,32 @@ class House {
   }
 
   getList() {
-    apiGetHouseList(getParams()).then(res => {
-      this.houseList = [
-        ...res.data.data.queryHomestays.datas.map(v => ({
-          ...v,
-          picture: `https://source.hilval.com/${v.picture}`
-        }))
-      ]
-      this.hasNext = res.data.data.queryHomestays.page.hasNext
+    return new Promise(resolve => {
+      apiGetHouseList(getParams()).then(res => {
+        const formateList = [
+          ...res.data.data.queryHomestays.datas.map(v => ({
+            ...v,
+            picture: `https://source.hilval.com/${v.picture}`
+          }))
+        ]
+        this.houseList = formateList
+        this.hasNext = res.data.data.queryHomestays.page.hasNext
+        resolve(formateList)
+      })
     })
   }
 
   getMore() {
     if (this.hasNext) {
+      // bug: 过滤条件不应该包含在'page'对象里面
       const lastRownum = this.houseList[this.houseList.length - 1].rownum || 1
-      apiGetHouseList({ page: { pageSize: 10, lastRownum }, ...getParams() }).then(res => {
-        this.houseList = [...this.houseList, ...res.data.data.queryHomestays.datas]
-        this.hasNext = res.data.data.queryHomestays.page.hasNext
-      })
+      const params = getParams()
+      apiGetHouseList({ ...params, page: { pageSize: 10, lastRownum, ...params.page } }).then(
+        res => {
+          this.houseList = [...this.houseList, ...res.data.data.queryHomestays.datas]
+          this.hasNext = res.data.data.queryHomestays.page.hasNext
+        }
+      )
     }
   }
 

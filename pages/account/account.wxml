@@ -1,6 +1,6 @@
 <view class="account-page">
   <view class="user-box">
-    <image class="wtf-bg" mode="aspectFill" src="../../resource/images/banner6.jpg"></image>
+    <image class="user-bg" mode="aspectFill" src="../../resource/images/banner6.jpg"></image>
     <view class="user-info">
       <image
         class="ctrl-btn"

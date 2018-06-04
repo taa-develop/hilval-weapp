@@ -53,10 +53,11 @@ class User {
   improveUserInfo(params) {
     return new Promise((resolve, reject) => {
       apiImproveUserInfo(params).then(res => {
-        if (res.data.improveUserInfo) {
+        console.log(res)
+        if (res.data.data.improveUserInfo) {
           resolve()
         } else {
-          reject(res.data.errors[0].message)
+          reject(res.data.data.errors[0].message)
         }
       })
     })

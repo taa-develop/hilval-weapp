@@ -3,8 +3,17 @@
  -->
 
 <view class="home-page">
-
-  <super-swiper imgs="{{banner}}"></super-swiper>
+  <swiper class="swiper" autoplay circular indicator-dots indicator-color="rgba(68,143,132,0.2)" indicator-active-color="rgba(68,143,132,0.8)">
+    <block wx:for="{{banner}}" wx:key="{{item.id}}">
+      <swiper-item>
+        <image src="{{item.url}}" class="slide-image" />
+        <view class="text">
+          <view class="zh">{{item.textZH}}</view>
+          <view class="en">{{item.textEN}}</view>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
 
   <view class="form-panel">
     <view class="address-section">
@@ -23,7 +32,9 @@
           <view class="label">入住</view>
         </view>
       </picker>
+
       <view class="center-line">/</view>
+
       <picker mode="date" start="{{start}}" end="{{end}}" value="{{props.form.endDateText}}" data-datetype="end" bind:change="handleDate">
         <view class="date-item">
           <view class="date">{{props.form.endDateText}}</view>
@@ -41,7 +52,34 @@
 
     <button class="search-btn" bind:tap="handleSubmit">搜索</button>
 
-    <!-- 第一次进入app,强制用户打开授权界面 -->
-    <login-cover-layer isLogin="{{props.app.isLogin}}" firstIn="{{props.app.firstIn}}"></login-cover-layer>
   </view>
+
+  <!-- 推荐 -->
+  <view class="line-title">热门推荐</view>
+  <view class="scroll-container">
+    <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!recommendList.length}}">
+      <view wx:for="{{recommendList}}" wx:key="{{item.id}}" class="house-item">
+        <image class="house-img" src="{{item.picture}}"></image>
+        <view class="house-name">{{item.name}}</view>
+        <view class="house-price">￥{{item.price}}</view>
+      </view>
+    </scroll-view>
+  </view>
+
+    <!-- 攻略-->
+    <view class="line-title">热门攻略</view>
+    <view class="scroll-container">
+      <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!strategy.length}}">
+        <view wx:for="{{strategy}}" wx:key="{{item.id}}" class="house-item">
+          <image class="house-img" src="{{item.url}}"></image>
+          <view class="house-text">
+            <view class="house-text-zh">{{item.textZH}}</view>
+            <view class="house-text-en">{{item.textEN}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+  <!-- 第一次进入app,强制用户打开授权界面 -->
+  <login-cover-layer isLogin="{{props.app.isLogin}}" firstIn="{{props.app.firstIn}}"></login-cover-layer>
 </view>

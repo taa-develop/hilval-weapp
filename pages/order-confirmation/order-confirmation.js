@@ -29,28 +29,29 @@ Page(
           queitDay: form.endDateText,
           travelers
         }).then(res => {
-          console.log('on pay order',res)
+          console.log('on pay order', res)
           if (res.data.data.payOrder) {
-            const {timeStamp,nonceStr,payPackage,signType,paySign}=res.data.data.payOrder
+            const { timeStamp, nonceStr, payPackage, signType, paySign } = res.data.data.payOrder
             // 开始调用支付接口
             wx.requestPayment({
-              timeStamp:timeStamp+'',
+              timeStamp: timeStamp + '',
               nonceStr,
-              'package': payPackage,
+              package: payPackage,
               signType,
               paySign,
-              success:res=>{
+              success: res => {
                 console.log('支付成功')
-                wx.switchTab({url: '/pages/order/order'})
+                wx.switchTab({ url: '/pages/order/order' })
               },
               fail: function(res) {}
             })
           }
         })
       } else {
-        wx.showToast({
-          title: '请先选择入住人信息。',
-          icon: 'none'
+        wx.showModal({
+          title: '提示',
+          content: '请先选择入住人信息。',
+          showCancel: false
         })
       }
     }

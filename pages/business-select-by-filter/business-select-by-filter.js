@@ -6,6 +6,7 @@ Page(
   observer({
     data: {
       prices: [
+        { id: 'p-0', label: '不限', min: 0, max: 0 },
         { id: 'p-1', label: '400以下', min: 0, max: 400 },
         { id: 'p-2', label: '400-600', min: 400, max: 600 },
         { id: 'p-3', label: '600-800', min: 600, max: 800 },

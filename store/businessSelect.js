@@ -4,8 +4,8 @@ class BusinessSelect {
   constructor() {
     observable(this, {
       keyword: '',
-      sort: { name: '默认排序', value: 'def' },
-      price: { id: 'p-1', label: '400以下', min: 0, max: 400 },
+      sort: { name: '价格由低到高', value: 'asc' },
+      price: { id: 'p-0', label: '不限', min: 0, max: 0 },
       types: [],
       characteristics: []
     })

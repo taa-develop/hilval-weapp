@@ -7,6 +7,8 @@ Page(
   observer({
     props: { house },
     data: {
+      houseId: null,
+
       toView: 'des',
       query: null,
       windowHeight: 0,
@@ -19,7 +21,7 @@ Page(
       markers: null
     },
 
-    handleSwiper(e){
+    handleSwiper(e) {
       console.log(e.detail)
     },
 
@@ -74,13 +76,14 @@ Page(
             })
           })
           .catch(msg => {
-            wx.showToast({
-              title: msg,
-              icon: 'none'
+            wx.shoModal({
+              title: '错误',
+              content: msg,
+              showCancel: false
             })
           })
       } else {
-        wx.showToast({ title: '请先完善用户信息', icon: 'none' })
+        wx.showModal({ title: '提示', content: '请先完善用户信息', showCancel: false })
         const t = setTimeout(() => {
           clearTimeout(t)
           wx.navigateTo({
@@ -91,8 +94,9 @@ Page(
     },
 
     // lifecycle
-    onLoad() {
-      house.getHouseDetail(house.currHouseId).then(res => {
+    onLoad(opt) {
+      this.setData({ houseId: opt.id })
+      house.getHouseDetail(this.data.houseId).then(res => {
         // 拿到数据后，需要设置map对象
         this.setData({
           lon: res.lon,
@@ -109,6 +113,10 @@ Page(
           ]
         })
       })
+    },
+
+    onShow() {
+      console.log('on show ', this.data.houseId)
     }
   })
 )

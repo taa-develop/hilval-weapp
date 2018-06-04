@@ -9,8 +9,8 @@ class applyForm {
     const d = time.getDate()
     observable(this, {
       place: '',
-      startDate: new Date(y, m, d).getTime(),
-      endDate: new Date(y, m, d + 1).getTime(),
+      startDate: new Date(y, m, d + 1).getTime(),
+      endDate: new Date(y, m, d + 2).getTime(),
       peopleIndex: 0,
       travelers: [],
       get startDateText() {
