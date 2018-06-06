@@ -55,7 +55,7 @@
   </view>
 
   <!-- 推荐 -->
-  <view class="line-title">热门推荐</view>
+  <view class="line-title"  wx:if="{{!!recommendList.length}}">热门推荐</view>
   <view class="scroll-container">
     <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!recommendList.length}}">
       <view wx:for="{{recommendList}}" wx:key="{{item.id}}" class="house-item">
