@@ -47,7 +47,7 @@ Page(
         }
       ],
       recommendList: [],
-      strategy:[
+      strategy: [
         {
           id: 'strategy-1',
           textZH: '巴厘岛',
@@ -68,7 +68,7 @@ Page(
           textEN: 'NanJing',
           url:
             'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=357671502,975226938&fm=27&gp=0.jpg'
-        },
+        }
       ]
     },
 
@@ -120,16 +120,15 @@ Page(
       }
     },
 
-    // lifecycle
-    onLoad() {
-      // 进入时,获取推荐民宿;大bug,不延迟无法获取token
-      setTimeout(() => {
-        house.getList().then(res => {
-          console.log('house list', res)
-          this.setData({ recommendList: res })
-        })
-      }, 1000)
+    goto(e) {
+      // 点击推荐民俗后跳转到民宿详情
+      const { id } = e.currentTarget.dataset
+      const type = 'homestay'
+      wx.navigateTo({ url: `/pages/${type}-detail/${type}-detail?id=${id}` })
     },
+
+    // lifecycle
+    onLoad() {},
 
     onShow() {
       const today = new Date()
@@ -142,10 +141,8 @@ Page(
 
     onShareAppMessage(res) {
       return {
-        title: '夏威夷海滩',
-        path: '/pages/home-page/home-page',
-        imageUrl:
-          'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1528094351381&di=1332092ac843dde8f4aa276af5b09e1d&imgtype=0&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F1%2F57456d7717ccd.jpg'
+        title: '晓行出行',
+        path: '/pages/home-page/home-page'
       }
     }
   })

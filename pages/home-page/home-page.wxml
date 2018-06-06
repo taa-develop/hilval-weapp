@@ -55,10 +55,10 @@
   </view>
 
   <!-- 推荐 -->
-  <view class="line-title"  wx:if="{{!!recommendList.length}}">热门推荐</view>
+  <view class="line-title" wx:if="{{!!props.app.recommendList.length}}">热门推荐</view>
   <view class="scroll-container">
-    <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!recommendList.length}}">
-      <view wx:for="{{recommendList}}" wx:key="{{item.id}}" class="house-item">
+    <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!props.app.recommendList.length}}">
+      <view wx:for="{{props.app.recommendList}}" wx:key="{{item.id}}" data-id="{{item.id}}" bind:tap="goto" class="house-item">
         <image class="house-img" src="{{item.picture}}"></image>
         <view class="house-name">{{item.name}}</view>
         <view class="house-price">￥{{item.price}}</view>
@@ -66,19 +66,19 @@
     </scroll-view>
   </view>
 
-    <!-- 攻略-->
-    <view class="line-title">热门攻略</view>
-    <view class="scroll-container">
-      <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!strategy.length}}">
-        <view wx:for="{{strategy}}" wx:key="{{item.id}}" class="house-item">
-          <image class="house-img" src="{{item.url}}"></image>
-          <view class="house-text">
-            <view class="house-text-zh">{{item.textZH}}</view>
-            <view class="house-text-en">{{item.textEN}}</view>
-          </view>
+  <!-- 攻略-->
+  <view class="line-title">热门攻略</view>
+  <view class="scroll-container">
+    <scroll-view scroll-x scroll-with-animation class="house-list" wx:if="{{!!strategy.length}}">
+      <view wx:for="{{strategy}}" wx:key="{{item.id}}" class="house-item">
+        <image class="house-img" src="{{item.url}}"></image>
+        <view class="house-text">
+          <view class="house-text-zh">{{item.textZH}}</view>
+          <view class="house-text-en">{{item.textEN}}</view>
         </view>
-      </scroll-view>
-    </view>
+      </view>
+    </scroll-view>
+  </view>
 
   <!-- 第一次进入app,强制用户打开授权界面 -->
   <login-cover-layer isLogin="{{props.app.isLogin}}" firstIn="{{props.app.firstIn}}"></login-cover-layer>

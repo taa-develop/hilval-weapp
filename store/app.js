@@ -1,12 +1,13 @@
-import { observable,mapStore } from './tools'
+import { observable, mapStore } from './tools'
 import { apiLogin } from '../api/login'
 
 class App {
   constructor() {
     observable(this, {
       isLogin: false,
-      firstIn:true,
-      token: {}
+      firstIn: true,
+      token: {},
+      recommendList: [] //首页打开时获取的推荐房屋列表,因为必须在获取到token之后才可以进行其他请求
     })
   }
   login() {
@@ -17,7 +18,14 @@ class App {
       if (infoObj) {
         this.isLogin = true
         mapStore('User').signIn()
+        mapStore('House')
+          .getList()
+          .then(list => {
+            console.log('home page house list', list)
+            this.recommendList = list
+          })
       }
+      return tokenObj
     })
   }
 }
